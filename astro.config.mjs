@@ -10,7 +10,10 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: 'OpenCauldron',
+      title: 'Docs',
+      logo: {
+        src: './public/favicon.svg',
+      },
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/opencauldron/opencauldron' },
         { icon: 'discord', label: 'Discord', href: 'https://discord.gg/opencauldron' },
@@ -25,6 +28,7 @@ export default defineConfig({
           items: [
             { slug: 'docs/introduction' },
             { slug: 'docs/installation' },
+            { slug: 'docs/cli' },
             { slug: 'docs/configuration' },
             { slug: 'docs/guides/api-keys' },
           ],
@@ -60,7 +64,13 @@ export default defineConfig({
         {
           label: 'Contributing',
           items: [
+            { slug: 'docs/contributing' },
+            { slug: 'docs/contributing/development-setup' },
+            { slug: 'docs/contributing/contributing-to-docs' },
+            { slug: 'docs/contributing/contributing-to-cli' },
             { slug: 'docs/guides/adding-providers' },
+            { slug: 'docs/contributing/code-style' },
+            { slug: 'docs/contributing/issues-and-requests' },
           ],
         },
         {
