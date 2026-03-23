@@ -1,0 +1,612 @@
+<!-- App Showcase -->
+<section id="app-showcase" class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24 lg:py-32 overflow-hidden">
+  <!-- Section header -->
+  <div class="text-center mb-14" data-showcase-header>
+    <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+      See it in
+      <span style="background: linear-gradient(135deg, oklch(0.76 0.13 280), oklch(0.65 0.20 300)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">action</span>
+    </h2>
+    <p class="mt-4 text-[var(--color-muted)] max-w-xl mx-auto">
+      One interface for every AI model. Generate, manage, and track — all in one place.
+    </p>
+  </div>
+
+  <!-- Browser mockup -->
+  <div class="showcase-perspective" style="perspective: 1200px;">
+    <div class="showcase-browser" data-showcase-browser>
+      <!-- Browser chrome -->
+      <div class="flex items-center gap-2 px-4 py-3 border-b border-[var(--color-border)] bg-[oklch(0.14_0.02_280)]">
+        <div class="hidden sm:flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-[oklch(0.65_0.15_25)]"></div>
+          <div class="w-3 h-3 rounded-full bg-[oklch(0.75_0.15_85)]"></div>
+          <div class="w-3 h-3 rounded-full bg-[oklch(0.65_0.15_145)]"></div>
+        </div>
+        <div class="flex-1 sm:mx-3 rounded-md bg-[var(--color-background)] px-3 py-1.5 text-xs text-[var(--color-muted)] font-mono truncate">
+          <span data-url-text>studio.yourdomain.com/generate</span>
+        </div>
+      </div>
+
+      <!-- Step navigation (replaces old screen tabs) -->
+      <div class="relative flex items-center border-b border-[var(--color-border)] bg-[oklch(0.13_0.02_280)]">
+        <button data-walk-tab="0" class="showcase-tab active">Prompt</button>
+        <button data-walk-tab="1" class="showcase-tab">Model</button>
+        <button data-walk-tab="2" class="showcase-tab">Enhance</button>
+        <button data-walk-tab="3" class="showcase-tab">Settings</button>
+        <button data-walk-tab="4" class="showcase-tab">Generate</button>
+        <div class="showcase-tab-indicator" data-tab-indicator></div>
+      </div>
+
+      <!-- Screen viewport -->
+      <div class="relative overflow-hidden bg-[var(--color-background)]" style="aspect-ratio: 1/1;" id="showcase-viewport">
+        <div class="h-full flex flex-col sm:flex-row">
+          <!-- Left: Walkthrough steps -->
+          <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Walkthrough content area -->
+            <div class="flex-1 relative">
+
+                <!-- Step 1: Full generate sidebar -->
+                <div data-walk-step="0" class="walk-step active absolute inset-0 p-4 sm:p-5 flex flex-col gap-2.5 overflow-y-auto">
+                  <!-- Page header -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--color-primary)]/10">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/></svg>
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold">Generate</p>
+                      <p class="text-[9px] text-[var(--color-muted)]">Create images and videos with AI-powered generation.</p>
+                    </div>
+                  </div>
+                  <!-- Media tabs -->
+                  <div class="flex rounded-lg bg-[var(--color-card)] p-0.5">
+                    <div class="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-md bg-[var(--color-background)] text-[10px] font-medium">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                      Image <span class="text-[var(--color-muted)]">5</span>
+                    </div>
+                    <div class="flex-1 flex items-center justify-center gap-1.5 py-1.5 text-[10px] text-[var(--color-muted)]">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+                      Video <span>5</span>
+                    </div>
+                  </div>
+                  <!-- Compact prompt with typing -->
+                  <div class="rounded-xl ring-1 ring-[var(--color-primary)]/30 bg-[var(--color-card)] p-3">
+                    <div class="text-[10px] sm:text-xs text-[var(--color-muted)]/80 leading-relaxed min-h-[3.5rem]">
+                      <span data-typing-target>A glowing cauldron made of dark obsidian stone, bubbling with iridescent purple and teal liquid, ancient runes floating upward, mystical particles swirling in the air, dark fantasy atmosphere, volumetric lighting, cinematic composition</span>
+                      <span data-typing-cursor class="inline-block w-[2px] h-[12px] bg-[var(--color-primary)] ml-0.5 align-middle animate-pulse"></span>
+                    </div>
+                    <div class="text-right text-[8px] text-[var(--color-muted)]/40 mt-1"><span data-char-count>0</span>/2000</div>
+                  </div>
+                  <!-- Upload ref -->
+                  <div class="rounded-lg border border-dashed border-[var(--color-border)]/50 px-3 py-1.5 flex items-center gap-2 text-[10px] text-[var(--color-muted)]">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                    Upload reference image
+                  </div>
+                  <!-- Prompt Enhancer (collapsed) -->
+                  <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] px-3 py-2.5 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .963L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                      <span class="text-[10px] font-medium">Prompt Enhancer</span>
+                      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                    <div class="w-7 h-[16px] rounded-full flex items-center px-0.5" style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300));">
+                      <div class="w-3 h-3 rounded-full bg-white ml-auto"></div>
+                    </div>
+                  </div>
+                  <!-- Model selector -->
+                  <div class="rounded-xl ring-1 ring-[var(--color-primary)]/20 bg-[var(--color-card)] px-3 py-2.5 flex items-center gap-2.5">
+                    <img src="/logos/google.png" alt="" width="20" height="20" class="rounded-md" />
+                    <div class="flex-1">
+                      <div class="flex items-center gap-1.5">
+                        <span class="text-[10px] font-semibold">Gemini</span>
+                        <span class="px-1.5 py-0.5 rounded text-[7px] bg-[var(--color-primary)]/10 ring-1 ring-[var(--color-primary)]/30 text-[var(--color-primary)] font-medium">Imagen 4</span>
+                      </div>
+                    </div>
+                    <span class="text-[9px] text-[var(--color-muted)] tabular-nums">$0.040/img</span>
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                  <!-- Generate button -->
+                  <button class="w-full py-2.5 rounded-xl text-[11px] font-semibold text-white flex items-center justify-center gap-2 mt-auto" style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300)); box-shadow: 0 0 20px oklch(0.58 0.22 280 / 0.3);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/></svg>
+                    Generate
+                  </button>
+                </div>
+
+                <!-- Step 2: Choose a model -->
+                <div data-walk-step="1" class="walk-step absolute inset-0 p-4 sm:p-5 flex flex-col overflow-y-auto">
+                  <div class="flex items-center justify-between mb-3">
+                    <p class="text-xs font-semibold">Image Model</p>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+                  </div>
+                  <!-- Model cards -->
+                  <div class="flex flex-col gap-2">
+                    <!-- Gemini - selected -->
+                    <div class="rounded-xl ring-1 ring-[var(--color-primary)]/40 bg-[var(--color-card)] p-3">
+                      <div class="flex items-center gap-2.5 mb-1.5">
+                        <img src="/logos/gemini.png" alt="Gemini" width="28" height="28" class="rounded-lg" />
+                        <p class="text-xs font-semibold flex-1">Gemini</p>
+                        <span class="px-2 py-0.5 rounded-full text-[8px] font-semibold text-white" style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300));">$0.040</span>
+                      </div>
+                      <div class="flex gap-1.5 mb-1.5 ml-[38px]">
+                        <span class="px-2 py-0.5 rounded text-[7px] bg-[var(--color-background)] ring-1 ring-[var(--color-primary)]/30 text-[var(--color-primary)] font-semibold">Imagen 4</span>
+                        <span class="px-2 py-0.5 rounded text-[7px] bg-[var(--color-background)] text-[var(--color-muted)]">Flash</span>
+                        <span class="px-2 py-0.5 rounded text-[7px] bg-[var(--color-background)] text-[var(--color-muted)]">Lite</span>
+                        <span class="px-2 py-0.5 rounded text-[7px] bg-[var(--color-background)] text-[var(--color-muted)]">Ultra</span>
+                        <span class="px-2 py-0.5 rounded text-[7px] bg-[var(--color-background)] text-[var(--color-muted)]">Fast</span>
+                      </div>
+                      <p class="text-[8px] text-[var(--color-muted)] ml-[38px]">Google's most capable image model. Photorealistic, high quality.</p>
+                      <div class="flex items-center gap-1 text-[8px] text-[var(--color-muted)]/60 mt-1.5 ml-[38px]">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        ~8s
+                      </div>
+                    </div>
+                    <!-- Grok -->
+                    <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] p-2.5">
+                      <div class="flex items-center gap-2.5">
+                        <img src="/logos/xai.png" alt="Grok" width="24" height="24" class="rounded-lg" />
+                        <p class="text-[10px] font-semibold flex-1">Grok</p>
+                        <span class="px-1.5 py-0.5 rounded-md text-[8px] text-[var(--color-muted)] ring-1 ring-[var(--color-border)]/50 tabular-nums">$0.02</span>
+                      </div>
+                      <p class="text-[8px] text-[var(--color-muted)] mt-1 ml-[34px]">xAI's fast image generation with creative styles.</p>
+                      <div class="flex items-center gap-1 text-[8px] text-[var(--color-muted)]/60 mt-1 ml-[34px]">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        ~5s
+                      </div>
+                    </div>
+                    <!-- Flux -->
+                    <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] p-2.5">
+                      <div class="flex items-center gap-2.5">
+                        <img src="/logos/bfl.png" alt="Flux" width="24" height="24" class="rounded-lg" />
+                        <p class="text-[10px] font-semibold flex-1">Flux</p>
+                        <span class="px-1.5 py-0.5 rounded-md text-[8px] text-[var(--color-muted)] ring-1 ring-[var(--color-border)]/50 tabular-nums">$0.04</span>
+                      </div>
+                      <p class="text-[8px] text-[var(--color-muted)] mt-1 ml-[34px]">Black Forest Labs' high-quality, fast image generation.</p>
+                      <div class="flex items-center gap-1 text-[8px] text-[var(--color-muted)]/60 mt-1 ml-[34px]">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        ~6s
+                      </div>
+                    </div>
+                    <!-- Ideogram -->
+                    <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] p-2.5">
+                      <div class="flex items-center gap-2.5">
+                        <img src="/logos/ideogram.png" alt="Ideogram" width="24" height="24" class="rounded-lg" />
+                        <p class="text-[10px] font-semibold flex-1">Ideogram</p>
+                        <span class="px-1.5 py-0.5 rounded-md text-[8px] text-[var(--color-muted)] ring-1 ring-[var(--color-border)]/50 tabular-nums">$0.06</span>
+                      </div>
+                      <p class="text-[8px] text-[var(--color-muted)] mt-1 ml-[34px]">Best-in-class text rendering in images.</p>
+                      <div class="flex items-center gap-1 text-[8px] text-[var(--color-muted)]/60 mt-1 ml-[34px]">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        ~10s
+                      </div>
+                    </div>
+                    <!-- Recraft -->
+                    <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] p-2.5">
+                      <div class="flex items-center gap-2.5">
+                        <img src="/logos/recraft.png" alt="Recraft" width="24" height="24" class="rounded-lg" />
+                        <p class="text-[10px] font-semibold flex-1">Recraft</p>
+                        <span class="px-1.5 py-0.5 rounded-md text-[8px] text-[var(--color-muted)] ring-1 ring-[var(--color-border)]/50 tabular-nums">$0.04</span>
+                      </div>
+                      <p class="text-[8px] text-[var(--color-muted)] mt-1 ml-[34px]">Design-focused generation with vector and brand-safe styles.</p>
+                      <div class="flex items-center gap-1 text-[8px] text-[var(--color-muted)]/60 mt-1 ml-[34px]">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        ~8s
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 3: Prompt Enhancer -->
+                <div data-walk-step="2" class="walk-step absolute inset-0 p-4 sm:p-5 flex flex-col overflow-y-auto">
+                  <!-- Header with toggle -->
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .963L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                      <p class="text-xs font-semibold">Prompt Enhancer</p>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+                    </div>
+                    <div class="w-8 h-[18px] rounded-full flex items-center px-0.5" style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300));">
+                      <div class="w-3.5 h-3.5 rounded-full bg-white ml-auto"></div>
+                    </div>
+                  </div>
+                  <!-- Templates / AI Rewrite toggle -->
+                  <div class="flex rounded-xl bg-[var(--color-card)] ring-1 ring-[var(--color-border)]/50 p-0.5 w-full mb-4">
+                    <div class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg bg-[var(--color-background)] text-[10px] font-medium">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                      Templates
+                    </div>
+                    <div class="flex-1 flex items-center justify-center gap-1.5 py-2 text-[10px] text-[var(--color-muted)]">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .963L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                      AI Rewrite
+                    </div>
+                  </div>
+                  <!-- Dropdowns -->
+                  <div class="flex flex-col gap-3">
+                    <div>
+                      <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Style</p>
+                      <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] px-3 py-2.5 flex items-center justify-between text-[10px]">
+                        <span>Cinematic</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Lighting</p>
+                      <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] px-3 py-2.5 flex items-center justify-between text-[10px]">
+                        <span>Volumetric</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Composition</p>
+                      <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] px-3 py-2.5 flex items-center justify-between text-[10px]">
+                        <span class="text-[var(--color-muted)]/50">Select composition</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Mood</p>
+                      <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] px-3 py-2.5 flex items-center justify-between text-[10px]">
+                        <span>Mysterious</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Quality</p>
+                      <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] px-3 py-2.5 flex items-center justify-between text-[10px]">
+                        <span class="text-[var(--color-muted)]/50">Select quality</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Apply button -->
+                  <button class="w-full py-2.5 rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] text-[10px] text-[var(--color-muted)] flex items-center justify-center gap-2 mt-4">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .963L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                    Apply Template
+                  </button>
+                </div>
+
+                <!-- Step 4: Parameters -->
+                <div data-walk-step="3" class="walk-step absolute inset-0 p-4 sm:p-5 flex flex-col overflow-y-auto">
+                  <!-- Header -->
+                  <div class="mb-3">
+                    <p class="text-xs font-semibold">Parameters</p>
+                    <p class="text-[9px] text-[var(--color-muted)]">Gemini</p>
+                  </div>
+                  <!-- Aspect Ratio -->
+                  <div class="mb-3">
+                    <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Aspect Ratio</p>
+                    <div class="flex gap-1.5">
+                      <div class="flex-1 rounded-xl ring-1 ring-[var(--color-primary)]/40 bg-[var(--color-primary)]/5 py-2.5 flex flex-col items-center gap-1">
+                        <div class="w-3.5 h-3.5 rounded-sm ring-1 ring-[var(--color-primary)]/50"></div>
+                        <span class="text-[8px] text-[var(--color-primary)] font-medium">1:1</span>
+                      </div>
+                      <div class="flex-1 rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] py-2.5 flex flex-col items-center gap-1">
+                        <div class="w-4.5 h-3 rounded-sm ring-1 ring-[var(--color-muted)]/30"></div>
+                        <span class="text-[8px] text-[var(--color-muted)]">16:9</span>
+                      </div>
+                      <div class="flex-1 rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] py-2.5 flex flex-col items-center gap-1">
+                        <div class="w-2.5 h-4 rounded-sm ring-1 ring-[var(--color-muted)]/30"></div>
+                        <span class="text-[8px] text-[var(--color-muted)]">9:16</span>
+                      </div>
+                      <div class="flex-1 rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] py-2.5 flex flex-col items-center gap-1">
+                        <div class="w-3.5 h-3 rounded-sm ring-1 ring-[var(--color-muted)]/30"></div>
+                        <span class="text-[8px] text-[var(--color-muted)]">4:3</span>
+                      </div>
+                      <div class="flex-1 rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] py-2.5 flex flex-col items-center gap-1">
+                        <div class="w-3 h-3.5 rounded-sm ring-1 ring-[var(--color-muted)]/30"></div>
+                        <span class="text-[8px] text-[var(--color-muted)]">3:4</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Negative prompt -->
+                  <div class="mb-3">
+                    <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Negative Prompt</p>
+                    <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] px-3 py-2.5 text-[10px] text-[var(--color-muted)]/40 min-h-[2.5rem]">
+                      What to avoid in the generation...
+                    </div>
+                  </div>
+                  <!-- Resolution -->
+                  <div class="mb-3">
+                    <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Resolution</p>
+                    <div class="flex gap-2">
+                      <div class="flex-1 rounded-xl ring-1 ring-[var(--color-primary)]/40 bg-[var(--color-primary)]/5 py-2 text-center text-[10px] text-[var(--color-primary)] font-medium">1K</div>
+                      <div class="flex-1 rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] py-2 text-center text-[10px] text-[var(--color-muted)]">2K</div>
+                    </div>
+                  </div>
+                  <!-- Output format -->
+                  <div class="mb-3">
+                    <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Output Format</p>
+                    <div class="flex gap-2">
+                      <div class="flex-1 rounded-xl ring-1 ring-[var(--color-primary)]/40 bg-[var(--color-primary)]/5 py-2 text-center text-[10px] text-[var(--color-primary)] font-medium">PNG</div>
+                      <div class="flex-1 rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] py-2 text-center text-[10px] text-[var(--color-muted)]">JPEG</div>
+                    </div>
+                  </div>
+                  <!-- Seed -->
+                  <div class="mb-3">
+                    <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Seed</p>
+                    <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] px-3 py-2.5 text-[10px] text-[var(--color-muted)]/40">
+                      Random
+                    </div>
+                  </div>
+                  <!-- Person Generation -->
+                  <div class="mb-3">
+                    <p class="text-[9px] text-[var(--color-muted)] mb-1.5">Person Generation</p>
+                    <div class="rounded-xl ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)] px-3 py-2.5 flex items-center justify-between text-[10px]">
+                      <span class="text-[var(--color-muted)]/60">Allow Adults (default)</span>
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+                  </div>
+                  <!-- Toggles -->
+                  <div class="flex flex-col gap-2.5 mt-auto">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[9px] text-[var(--color-muted)]">Watermark</span>
+                      <div class="w-7 h-[16px] rounded-full flex items-center px-0.5" style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300));">
+                        <div class="w-3 h-3 rounded-full bg-white ml-auto"></div>
+                      </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="text-[9px] text-[var(--color-muted)]">Provider Prompt Enhance</span>
+                      <div class="w-7 h-[16px] rounded-full flex items-center px-0.5" style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300));">
+                        <div class="w-3 h-3 rounded-full bg-white ml-auto"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Step 5: Generate -->
+                <div data-walk-step="4" class="walk-step absolute inset-0 p-4 sm:p-5 flex flex-col justify-center items-center text-center">
+                  <div class="mb-4">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-primary)]/10 mx-auto mb-3">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/></svg>
+                    </div>
+                    <p class="text-sm font-semibold mb-1">Ready to generate</p>
+                    <p class="text-[10px] text-[var(--color-muted)] max-w-[200px] mx-auto">Your prompt, model, and settings are configured. Hit generate.</p>
+                  </div>
+                  <!-- Summary pills -->
+                  <div class="flex flex-wrap gap-1.5 justify-center mb-4">
+                    <span class="px-2 py-1 rounded-lg bg-[var(--color-card)] ring-1 ring-[var(--color-border)]/50 text-[8px]">
+                      <span class="text-[var(--color-muted)]">Model:</span> Gemini Imagen 4
+                    </span>
+                    <span class="px-2 py-1 rounded-lg bg-[var(--color-card)] ring-1 ring-[var(--color-border)]/50 text-[8px]">
+                      <span class="text-[var(--color-muted)]">Ratio:</span> 16:9
+                    </span>
+                    <span class="px-2 py-1 rounded-lg bg-[var(--color-card)] ring-1 ring-[var(--color-border)]/50 text-[8px]">
+                      <span class="text-[var(--color-muted)]">Cost:</span> $0.040
+                    </span>
+                  </div>
+                  <!-- Generate button -->
+                  <button data-walk-generate class="w-48 py-2.5 rounded-lg text-xs font-semibold text-white flex items-center justify-center gap-2" style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300));">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/></svg>
+                    Generate
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+
+          <!-- Right: Canvas with blurred preview -->
+          <div class="hidden sm:flex w-1/2 border-l border-[var(--color-border)] items-center justify-center p-4 relative overflow-hidden">
+            <!-- Blurred silhouette (visible during steps 0-3) -->
+            <div class="absolute inset-0 flex items-center justify-center" data-cauldron-blur>
+              <img src="/screenshots/cauldron-result.webp" alt="" class="w-[85%] h-[85%] object-cover rounded-xl" style="filter: blur(30px) saturate(0.4) brightness(0.3); opacity: 0.5;" />
+            </div>
+            <!-- Actual image (revealed on step 4) -->
+            <div class="absolute inset-4 rounded-xl overflow-hidden" data-cauldron-container>
+              <img src="/screenshots/cauldron-result.webp" alt="Generated cauldron image" class="w-full h-full object-cover rounded-xl" data-cauldron-img style="opacity: 0;" />
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Shimmer overlay -->
+        <div class="showcase-shimmer" data-shimmer aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step description -->
+  <div class="mt-8 text-center" data-showcase-caption>
+    <p class="text-base sm:text-lg font-medium" data-caption-text>Write a detailed prompt describing exactly what you want to create.</p>
+  </div>
+</section>
+
+<!-- GSAP showcase animations -->
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('app-showcase');
+    const header = document.querySelector('[data-showcase-header]');
+    const browser = document.querySelector('[data-showcase-browser]');
+    const shimmer = document.querySelector('[data-shimmer]');
+    const caption = document.querySelector('[data-showcase-caption]');
+    const cauldronImg = document.querySelector('[data-cauldron-img]') as HTMLElement;
+    const cauldronBlur = document.querySelector('[data-cauldron-blur]') as HTMLElement;
+
+    if (section && browser) {
+      gsap.set(header, { opacity: 0, y: 24 });
+      gsap.set(browser, { opacity: 0, y: 60, rotateX: 8, transformOrigin: 'center bottom' });
+      gsap.set(caption, { opacity: 0, y: 12 });
+
+      const revealTl = gsap.timeline({ paused: true });
+
+      revealTl
+        .to(header, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+        .to(browser, { opacity: 1, y: 0, rotateX: 0, duration: 1, ease: 'power3.out' }, '-=0.3')
+        .to(shimmer, { x: '200%', duration: 0.8, ease: 'power2.inOut' }, '-=0.4')
+        .to(caption, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.4')
+        .add(() => { startWalkthrough(); });
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 75%',
+        once: true,
+        onEnter: () => revealTl.play()
+      });
+    }
+
+    // === Walkthrough logic ===
+    const walkSteps = document.querySelectorAll('.walk-step');
+    const walkTabEls = document.querySelectorAll('[data-walk-tab]');
+    const typingTarget = document.querySelector('[data-typing-target]') as HTMLElement;
+    const typingCursor = document.querySelector('[data-typing-cursor]') as HTMLElement;
+    const charCount = document.querySelector('[data-char-count]') as HTMLElement;
+
+    let walkCurrent = 0;
+    let walkTimer: ReturnType<typeof setInterval> | null = null;
+    let walkAnimating = false;
+    let typingInterval: ReturnType<typeof setInterval> | null = null;
+    let walkthroughStarted = false;
+    const WALK_INTERVAL = 4500;
+
+    const walkCaptions = [
+      'Write a detailed prompt describing exactly what you want to create.',
+      'Choose from 5+ AI models — each with different strengths and pricing.',
+      'Use templates or AI rewrite to enhance your prompt automatically.',
+      'Fine-tune aspect ratio, resolution, format, and advanced settings.',
+      'Hit generate and watch your creation come to life.',
+    ];
+
+    function startTyping() {
+      if (!typingTarget) return;
+      const fullText = typingTarget.textContent || '';
+      typingTarget.textContent = '';
+      if (charCount) charCount.textContent = '0';
+      if (typingCursor) typingCursor.style.display = 'inline-block';
+      let i = 0;
+      typingInterval = setInterval(() => {
+        if (i < fullText.length) {
+          typingTarget.textContent = fullText.slice(0, i + 1);
+          if (charCount) charCount.textContent = String(i + 1);
+          i++;
+        } else {
+          if (typingInterval) clearInterval(typingInterval);
+          typingInterval = null;
+        }
+      }, 18);
+    }
+
+    function stopTyping() {
+      if (typingInterval) {
+        clearInterval(typingInterval);
+        typingInterval = null;
+      }
+    }
+
+    function goToStep(idx: number) {
+      if (walkAnimating || idx === walkCurrent) return;
+      if (idx < 0 || idx >= walkSteps.length) return;
+      walkAnimating = true;
+      stopTyping();
+
+      const currentStep = walkSteps[walkCurrent] as HTMLElement;
+      const nextStep = walkSteps[idx] as HTMLElement;
+      const captionText = document.querySelector('[data-caption-text]');
+
+      // Animate out
+      gsap.to(currentStep, {
+        opacity: 0,
+        x: idx > walkCurrent ? -20 : 20,
+        duration: 0.25,
+        ease: 'power2.in',
+        onComplete: () => {
+          currentStep.classList.remove('active');
+          gsap.set(currentStep, { x: 0 });
+
+          // Animate in
+          gsap.set(nextStep, { opacity: 0, x: idx > walkCurrent ? 20 : -20 });
+          nextStep.classList.add('active');
+          gsap.to(nextStep, {
+            opacity: 1,
+            x: 0,
+            duration: 0.35,
+            ease: 'power2.out',
+            onComplete: () => {
+              walkAnimating = false;
+              // Start typing on step 0
+              if (idx === 0) startTyping();
+              // Reveal image on step 4
+              if (idx === 4) {
+                if (cauldronBlur) gsap.to(cauldronBlur, { opacity: 0, duration: 0.5 });
+                if (cauldronImg) gsap.to(cauldronImg, { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.4)' });
+              } else {
+                // Reset image when leaving step 4
+                if (walkCurrent === 4) {
+                  if (cauldronBlur) gsap.to(cauldronBlur, { opacity: 1, duration: 0.3 });
+                  if (cauldronImg) gsap.set(cauldronImg, { opacity: 0, scale: 0.95 });
+                }
+              }
+              walkCurrent = idx;
+            }
+          });
+        }
+      });
+
+      // Update tabs
+      walkTabEls.forEach((t, i) => {
+        t.classList.toggle('active', i === idx);
+      });
+      const activeTab = walkTabEls[idx] as HTMLElement;
+      if (activeTab) positionIndicator(activeTab);
+
+      // Update caption
+      if (captionText) {
+        gsap.to(captionText, {
+          opacity: 0,
+          duration: 0.15,
+          onComplete: () => {
+            captionText.textContent = walkCaptions[idx];
+            gsap.to(captionText, { opacity: 1, duration: 0.2 });
+          }
+        });
+      }
+    }
+
+    function nextWalkStep() {
+      const next = (walkCurrent + 1) % walkSteps.length;
+      goToStep(next);
+    }
+
+    function startWalkthrough() {
+      if (walkthroughStarted) return;
+      walkthroughStarted = true;
+      if (cauldronImg) gsap.set(cauldronImg, { opacity: 0, scale: 0.95 });
+      startTyping();
+      // Update caption to step 0
+      const captionText = document.querySelector('[data-caption-text]');
+      if (captionText) captionText.textContent = walkCaptions[0];
+      walkTimer = setInterval(nextWalkStep, WALK_INTERVAL);
+    }
+
+    function resetWalkTimer() {
+      if (walkTimer) clearInterval(walkTimer);
+      walkTimer = setInterval(nextWalkStep, WALK_INTERVAL);
+    }
+
+    // Step tabs (replacing old screen tabs + walk dots)
+    const walkTabs = document.querySelectorAll('[data-walk-tab]');
+    const indicator = document.querySelector('[data-tab-indicator]') as HTMLElement;
+
+    function positionIndicator(tab: HTMLElement) {
+      if (!indicator) return;
+      gsap.to(indicator, { x: tab.offsetLeft, width: tab.offsetWidth, duration: 0.3, ease: 'power2.inOut' });
+    }
+
+    const firstTab = document.querySelector('[data-walk-tab].active') as HTMLElement;
+    if (firstTab && indicator) {
+      gsap.set(indicator, { x: firstTab.offsetLeft, width: firstTab.offsetWidth });
+    }
+
+    walkTabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => {
+        goToStep(i);
+        resetWalkTimer();
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      const activeTab = document.querySelector('[data-walk-tab].active') as HTMLElement;
+      if (activeTab) positionIndicator(activeTab);
+    });
+  });
+</script>

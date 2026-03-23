@@ -1,0 +1,71 @@
+<!-- FAQ -->
+<section class="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-24">
+  <div class="text-center mb-16">
+    <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+      Frequently asked
+      <span style="background: linear-gradient(135deg, oklch(0.76 0.13 280), oklch(0.65 0.20 300)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">questions</span>
+    </h2>
+  </div>
+
+  <div class="space-y-3" id="faq-list">
+    <details class="group rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] transition-all hover:ring-[var(--color-primary)]/20">
+      <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+        Is OpenCauldron really free?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </summary>
+      <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
+        Yes. OpenCauldron is 100% free and open source under the MIT license. You pay only for the AI model API usage directly to the providers (Google, Replicate, etc.) using your own API keys. There are no platform fees, subscriptions, or hidden costs.
+      </div>
+    </details>
+
+    <details class="group rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] transition-all hover:ring-[var(--color-primary)]/20">
+      <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+        What API keys do I need?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </summary>
+      <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
+        You only need keys for the providers you want to use. For example, a Google AI API key gives you access to Imagen 4 and Veo. A Replicate token unlocks Flux Pro. You can start with just one provider and add more as needed.
+      </div>
+    </details>
+
+    <details class="group rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] transition-all hover:ring-[var(--color-primary)]/20">
+      <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+        Can I add custom models?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </summary>
+      <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
+        Yes. OpenCauldron has a provider registry that makes it straightforward to add new models. You can fork the repo and add any model that has an API. We also welcome PRs to add new providers to the main project.
+      </div>
+    </details>
+
+    <details class="group rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] transition-all hover:ring-[var(--color-primary)]/20">
+      <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+        How is billing handled?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </summary>
+      <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
+        OpenCauldron itself doesn't handle billing — your API keys are charged directly by each provider at their standard rates. The built-in usage dashboard tracks every generation's cost so you always know what you're spending, broken down by user, model, and brand.
+      </div>
+    </details>
+
+    <details class="group rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] transition-all hover:ring-[var(--color-primary)]/20">
+      <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+        Where is my data stored?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </summary>
+      <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
+        Everything stays on your infrastructure. Prompts and metadata go to your PostgreSQL database, generated images are stored in your Cloudflare R2 bucket (or any S3-compatible storage). OpenCauldron never phones home or collects telemetry.
+      </div>
+    </details>
+
+    <details class="group rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] transition-all hover:ring-[var(--color-primary)]/20">
+      <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+        Can I use it without self-hosting?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </summary>
+      <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
+        A hosted version is on the roadmap. For now, OpenCauldron is self-hosted — but deploying with Docker or Vercel takes just a few minutes. Check the installation docs for step-by-step instructions.
+      </div>
+    </details>
+  </div>
+</section>

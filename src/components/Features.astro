@@ -1,0 +1,85 @@
+---
+const features = [
+  {
+    title: "Multi-Model Generation",
+    description: "Flux Pro, Imagen 4, Ideogram 3, Recraft V3, and more. One interface, many engines — pick the best model for each job.",
+    icon: "layers",
+    color: "var(--color-primary)",
+  },
+  {
+    title: "Bring Your Own Keys",
+    description: "Use your own API keys and pay providers directly. No markup, no middleman. You control your costs.",
+    icon: "key",
+    color: "var(--color-sky)",
+  },
+  {
+    title: "Brand Management",
+    description: "Tag generations by brand, organize assets, and keep creative output consistent across teams.",
+    icon: "tags",
+    color: "var(--color-fuchsia)",
+  },
+  {
+    title: "Usage & Cost Tracking",
+    description: "Monitor API costs per user, per model, per brand. Know exactly where your budget goes.",
+    icon: "chart",
+    color: "var(--color-teal)",
+  },
+  {
+    title: "Team Collaboration",
+    description: "Shared gallery, leaderboards, and user profiles. See what your team is creating.",
+    icon: "users",
+    color: "var(--color-violet)",
+  },
+  {
+    title: "Self-Host Everything",
+    description: "Your database, your storage, your auth provider. Ships with sensible defaults, but nothing is locked in.",
+    icon: "server",
+    color: "var(--color-fuchsia)",
+  },
+];
+---
+
+<!-- Features -->
+<section id="features" class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
+  <div class="text-center mb-16">
+    <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+      Everything you need to
+      <span style="background: linear-gradient(135deg, oklch(0.76 0.13 280), oklch(0.65 0.20 300)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">generate at scale</span>
+    </h2>
+    <p class="mt-4 text-[var(--color-muted)] max-w-xl mx-auto">
+      Not just another image generator. OpenCauldron is a full studio for teams that take their creative output seriously.
+    </p>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {features.map((feature) => (
+      <div class="group relative rounded-2xl bg-[var(--color-card)] p-6 ring-1 ring-[var(--color-border)] transition-all duration-300 hover:ring-[var(--color-primary)]/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--color-primary)]/5">
+        <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-lg" style={`background: color-mix(in oklch, ${feature.color} 15%, transparent)`}>
+          {feature.icon === "layers" && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={feature.color} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
+          )}
+          {feature.icon === "tags" && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={feature.color} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"/><path d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="6.5" cy="9.5" r=".5" fill={feature.color}/></svg>
+          )}
+          {feature.icon === "sparkles" && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={feature.color} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+          )}
+          {feature.icon === "chart" && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={feature.color} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          )}
+          {feature.icon === "users" && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={feature.color} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          )}
+          {feature.icon === "key" && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={feature.color} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.3 9.3"/><path d="M18.5 5.5 21 3"/><path d="m15 8 2.5-2.5"/></svg>
+          )}
+          {feature.icon === "server" && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={feature.color} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+          )}
+        </div>
+        <h3 class="font-heading text-base font-semibold mb-1.5">{feature.title}</h3>
+        <p class="text-sm leading-relaxed text-[var(--color-muted)]">{feature.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
