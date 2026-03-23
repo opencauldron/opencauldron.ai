@@ -164,7 +164,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 640px) {
   #showcase-viewport {
-    aspect-ratio: 16/9 !important;
+    aspect-ratio: 2/1 !important;
   }
 }
 
@@ -173,3 +173,16 @@ h1, h2, h3, h4, h5, h6 {
     perspective: none !important;
   }
 }
+
+/* Walkthrough steps */
+.walk-step {
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.walk-step.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
