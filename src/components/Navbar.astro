@@ -57,7 +57,30 @@
       </svg>
     </div>
     <h3 class="font-heading text-xl font-bold mb-2"><span id="coming-soon-feature"></span></h3>
-    <p class="text-sm text-[var(--color-muted)]">Coming soon. Follow us on <a href="https://github.com/opencauldron/opencauldron" target="_blank" rel="noopener" class="text-[var(--color-primary)] hover:underline">GitHub</a> for updates.</p>
+    <p class="text-sm text-[var(--color-muted)] mb-5" id="coming-soon-desc">Coming soon. Follow us on <a href="https://github.com/opencauldron/opencauldron" target="_blank" rel="noopener" class="text-[var(--color-primary)] hover:underline">GitHub</a> for updates.</p>
+
+    <!-- Email capture form (shown for Discord) -->
+    <form id="discord-notify-form" name="discord-notify" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="hidden">
+      <input type="hidden" name="form-name" value="discord-notify" />
+      <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <div class="flex gap-2">
+        <input type="email" name="email" required placeholder="you@example.com"
+          class="flex-1 rounded-lg bg-[var(--color-background)] px-4 py-2.5 text-sm ring-1 ring-[var(--color-border)] focus:ring-[var(--color-primary)] focus:outline-none transition-all placeholder:text-[var(--color-muted)]/50" />
+        <button type="submit"
+          class="shrink-0 inline-flex h-10 items-center justify-center rounded-lg px-4 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-[var(--color-primary)]/20 active:translate-y-px cursor-pointer"
+          style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300));">
+          Notify me
+        </button>
+      </div>
+    </form>
+
+    <!-- Success message -->
+    <div id="discord-notify-success" class="hidden">
+      <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-teal)]/10 mx-auto mb-3">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <p class="text-sm font-medium">We'll let you know when it's live!</p>
+    </div>
   </div>
 </div>
 
@@ -87,11 +110,32 @@
   // Coming soon modal
   const csModal = document.getElementById('coming-soon-modal');
   const csFeature = document.getElementById('coming-soon-feature');
+  const csDesc = document.getElementById('coming-soon-desc');
   const csClose = document.getElementById('coming-soon-close');
   const csBackdrop = document.getElementById('coming-soon-backdrop');
+  const discordForm = document.getElementById('discord-notify-form') as HTMLFormElement;
+  const discordSuccess = document.getElementById('discord-notify-success');
 
   function openComingSoon(name: string) {
-    if (csFeature) csFeature.textContent = name + ' is coming soon';
+    // Reset state
+    discordForm?.classList.add('hidden');
+    discordSuccess?.classList.add('hidden');
+    if (csDesc) csDesc.classList.remove('hidden');
+
+    if (name === 'Discord') {
+      if (csFeature) csFeature.textContent = 'Discord is coming soon';
+      if (csDesc) {
+        csDesc.classList.remove('hidden');
+        csDesc.textContent = 'Get notified when our Discord community launches.';
+      }
+      discordForm?.classList.remove('hidden');
+    } else {
+      if (csFeature) csFeature.textContent = name + ' is coming soon';
+      if (csDesc) {
+        csDesc.innerHTML = 'Coming soon. Follow us on <a href="https://github.com/opencauldron/opencauldron" target="_blank" rel="noopener" class="text-[var(--color-primary)] hover:underline">GitHub</a> for updates.';
+      }
+    }
+
     csModal?.classList.remove('hidden');
     csModal?.classList.add('flex');
     document.body.style.overflow = 'hidden';
@@ -119,5 +163,24 @@
   csBackdrop?.addEventListener('click', closeComingSoon);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeComingSoon();
+  });
+
+  // Discord email form submission
+  discordForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(discordForm);
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data as any).toString(),
+      });
+      discordForm.classList.add('hidden');
+      if (csDesc) csDesc.classList.add('hidden');
+      discordSuccess?.classList.remove('hidden');
+      setTimeout(closeComingSoon, 2500);
+    } catch {
+      discordForm.submit();
+    }
   });
 </script>

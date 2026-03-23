@@ -3,8 +3,8 @@
   <!-- Section header -->
   <div class="text-center mb-14" data-showcase-header>
     <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
-      See it in
-      <span style="background: linear-gradient(135deg, oklch(0.76 0.13 280), oklch(0.65 0.20 300)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">action</span>
+      Generate media with the
+      <span style="background: linear-gradient(135deg, oklch(0.76 0.13 280), oklch(0.65 0.20 300)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">the wave of your wand</span>
     </h2>
     <p class="mt-4 text-[var(--color-muted)] max-w-xl mx-auto">
       One interface for every AI model. Generate, manage, and track — all in one place.
@@ -351,46 +351,85 @@
                 </div>
 
                 <!-- Step 5: Generate -->
-                <div data-walk-step="4" class="walk-step absolute inset-0 p-4 sm:p-5 flex flex-col justify-center items-center text-center">
-                  <div class="mb-4">
-                    <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-primary)]/10 mx-auto mb-3">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/></svg>
+                <!-- Step 5: Asset details (left panel on desktop, full on mobile) -->
+                <div data-walk-step="4" class="walk-step absolute inset-0 p-4 sm:p-5 flex flex-col overflow-y-auto">
+                  <!-- Mobile: show image with overlay -->
+                  <div class="sm:hidden rounded-xl overflow-hidden relative mb-3 aspect-square">
+                    <img src="/screenshots/cauldron-result.webp" alt="Generated cauldron" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 inset-x-0 p-3">
+                      <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="px-1.5 py-0.5 rounded text-[7px] font-medium bg-white/10 backdrop-blur-sm text-white/90 ring-1 ring-white/10">Imagen 4</span>
+                        <span class="px-1.5 py-0.5 rounded text-[7px] bg-white/10 backdrop-blur-sm text-white/90 ring-1 ring-white/10">Gemini</span>
+                      </div>
                     </div>
-                    <p class="text-sm font-semibold mb-1">Ready to generate</p>
-                    <p class="text-[10px] text-[var(--color-muted)] max-w-[200px] mx-auto">Your prompt, model, and settings are configured. Hit generate.</p>
                   </div>
-                  <!-- Summary pills -->
-                  <div class="flex flex-wrap gap-1.5 justify-center mb-4">
-                    <span class="px-2 py-1 rounded-lg bg-[var(--color-card)] ring-1 ring-[var(--color-border)]/50 text-[8px]">
-                      <span class="text-[var(--color-muted)]">Model:</span> Gemini Imagen 4
-                    </span>
-                    <span class="px-2 py-1 rounded-lg bg-[var(--color-card)] ring-1 ring-[var(--color-border)]/50 text-[8px]">
-                      <span class="text-[var(--color-muted)]">Ratio:</span> 16:9
-                    </span>
-                    <span class="px-2 py-1 rounded-lg bg-[var(--color-card)] ring-1 ring-[var(--color-border)]/50 text-[8px]">
-                      <span class="text-[var(--color-muted)]">Cost:</span> $0.040
-                    </span>
+                  <!-- Asset details -->
+                  <div class="hidden sm:block mb-2">
+                    <p class="text-xs font-semibold">Asset Details</p>
+                    <p class="text-[9px] text-[var(--color-muted)]">Generated with Imagen 4</p>
                   </div>
-                  <!-- Generate button -->
-                  <button data-walk-generate class="w-48 py-2.5 rounded-lg text-xs font-semibold text-white flex items-center justify-center gap-2" style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300));">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/></svg>
-                    Generate
-                  </button>
+                  <div class="flex flex-col gap-2.5">
+                    <div>
+                      <p class="text-[9px] text-[var(--color-primary)]/70 mb-0.5">Prompt</p>
+                      <p class="text-[9px] sm:text-[10px] leading-relaxed">A glowing cauldron made of dark obsidian stone, bubbling with iridescent purple and teal liquid, ancient runes floating upward, dark fantasy atmosphere, volumetric lighting</p>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="px-2 py-0.5 rounded-md text-[8px] font-medium ring-1 ring-[var(--color-primary)]/20 bg-[var(--color-primary)]/5 text-[var(--color-primary)]">Imagen 4</span>
+                      <span class="px-2 py-0.5 rounded-md text-[8px] ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)]">Gemini</span>
+                    </div>
+                    <div>
+                      <p class="text-[9px] text-[var(--color-primary)]/70 mb-0.5">Parameters</p>
+                      <div class="flex items-center gap-1.5">
+                        <span class="px-2 py-0.5 rounded-md text-[8px] ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)]">aspectRatio: 1:1</span>
+                        <span class="px-2 py-0.5 rounded-md text-[8px] ring-1 ring-[var(--color-border)]/50 bg-[var(--color-card)]">watermark: false</span>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-[9px] text-[var(--color-primary)]/70 mb-0.5">Dimensions</p>
+                      <p class="text-[10px]">1024 × 1024px <span class="text-[var(--color-muted)]">(1.4 MB)</span></p>
+                    </div>
+                    <div>
+                      <p class="text-[9px] text-[var(--color-primary)]/70 mb-0.5">Creator</p>
+                      <div class="flex items-center gap-2">
+                        <div class="h-5 w-5 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-fuchsia)]"></div>
+                        <p class="text-[10px]">Adam Levoy</p>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-[9px] text-[var(--color-primary)]/70 mb-0.5">Brand</p>
+                      <div class="flex items-center gap-1.5">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                        <span class="text-[10px]">OpenCauldron</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Action bar -->
+                  <div class="flex items-center gap-2 mt-auto pt-3 border-t border-[var(--color-border)]/50">
+                    <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--color-card)] text-[9px] ring-1 ring-[var(--color-border)]/50">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                      Download
+                    </button>
+                    <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--color-card)] text-[9px] ring-1 ring-[var(--color-border)]/50">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .963L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                      Animate
+                    </button>
+                  </div>
                 </div>
 
               </div>
 
             </div>
 
-          <!-- Right: Canvas with blurred preview -->
-          <div class="hidden sm:flex w-1/2 border-l border-[var(--color-border)] items-center justify-center p-4 relative overflow-hidden">
+          <!-- Right: Canvas with blurred preview + image reveal -->
+          <div class="hidden sm:flex w-1/2 border-l border-[var(--color-border)] items-center justify-center relative overflow-hidden">
             <!-- Blurred silhouette (visible during steps 0-3) -->
             <div class="absolute inset-0 flex items-center justify-center" data-cauldron-blur>
               <img src="/screenshots/cauldron-result.webp" alt="" class="w-[85%] h-[85%] object-cover rounded-xl" style="filter: blur(30px) saturate(0.4) brightness(0.3); opacity: 0.5;" />
             </div>
-            <!-- Actual image (revealed on step 4) -->
-            <div class="absolute inset-4 rounded-xl overflow-hidden" data-cauldron-container>
-              <img src="/screenshots/cauldron-result.webp" alt="Generated cauldron image" class="w-full h-full object-cover rounded-xl" data-cauldron-img style="opacity: 0;" />
+            <!-- Revealed image (step 4) — diffusion-style blur reveal -->
+            <div class="absolute inset-0 opacity-0" data-result-reveal>
+              <img src="/screenshots/cauldron-result.webp" alt="Generated cauldron image" class="w-full h-full object-cover" data-result-img style="filter: blur(40px) saturate(0) brightness(1.5);" />
             </div>
           </div>
         </div>
@@ -420,8 +459,8 @@
     const browser = document.querySelector('[data-showcase-browser]');
     const shimmer = document.querySelector('[data-shimmer]');
     const caption = document.querySelector('[data-showcase-caption]');
-    const cauldronImg = document.querySelector('[data-cauldron-img]') as HTMLElement;
     const cauldronBlur = document.querySelector('[data-cauldron-blur]') as HTMLElement;
+    const resultReveal = document.querySelector('[data-result-reveal]') as HTMLElement;
 
     if (section && browser) {
       gsap.set(header, { opacity: 0, y: 24 });
@@ -525,15 +564,25 @@
               walkAnimating = false;
               // Start typing on step 0
               if (idx === 0) startTyping();
-              // Reveal image on step 4
+              // Diffusion-style reveal in right panel on step 4
               if (idx === 4) {
-                if (cauldronBlur) gsap.to(cauldronBlur, { opacity: 0, duration: 0.5 });
-                if (cauldronImg) gsap.to(cauldronImg, { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.4)' });
+                const img = document.querySelector('[data-result-img]') as HTMLElement;
+                if (cauldronBlur) gsap.to(cauldronBlur, { opacity: 0, duration: 0.3 });
+                if (resultReveal) {
+                  const diffusionTl = gsap.timeline();
+                  diffusionTl
+                    .set(resultReveal, { opacity: 1 })
+                    .set(img, { filter: 'blur(40px) saturate(0) brightness(1.5)' })
+                    .to(img, { filter: 'blur(20px) saturate(0.3) brightness(1.3)', duration: 0.4, ease: 'none' })
+                    .to(img, { filter: 'blur(8px) saturate(0.6) brightness(1.1)', duration: 0.5, ease: 'none' })
+                    .to(img, { filter: 'blur(2px) saturate(0.9) brightness(1.02)', duration: 0.4, ease: 'none' })
+                    .to(img, { filter: 'blur(0px) saturate(1) brightness(1)', duration: 0.3, ease: 'power2.out' });
+                }
               } else {
-                // Reset image when leaving step 4
+                // Reset when leaving step 4
                 if (walkCurrent === 4) {
                   if (cauldronBlur) gsap.to(cauldronBlur, { opacity: 1, duration: 0.3 });
-                  if (cauldronImg) gsap.set(cauldronImg, { opacity: 0, scale: 0.95 });
+                  if (resultReveal) gsap.set(resultReveal, { opacity: 0 });
                 }
               }
               walkCurrent = idx;
@@ -570,7 +619,7 @@
     function startWalkthrough() {
       if (walkthroughStarted) return;
       walkthroughStarted = true;
-      if (cauldronImg) gsap.set(cauldronImg, { opacity: 0, scale: 0.95 });
+      if (resultReveal) gsap.set(resultReveal, { opacity: 0 });
       startTyping();
       // Update caption to step 0
       const captionText = document.querySelector('[data-caption-text]');
@@ -578,14 +627,19 @@
       walkTimer = setInterval(nextWalkStep, WALK_INTERVAL);
     }
 
+    function pauseWalkTimer() {
+      if (walkTimer) { clearInterval(walkTimer); walkTimer = null; }
+    }
+
     function resetWalkTimer() {
-      if (walkTimer) clearInterval(walkTimer);
+      pauseWalkTimer();
       walkTimer = setInterval(nextWalkStep, WALK_INTERVAL);
     }
 
     // Step tabs (replacing old screen tabs + walk dots)
     const walkTabs = document.querySelectorAll('[data-walk-tab]');
     const indicator = document.querySelector('[data-tab-indicator]') as HTMLElement;
+    const viewport = document.getElementById('showcase-viewport');
 
     function positionIndicator(tab: HTMLElement) {
       if (!indicator) return;
@@ -602,7 +656,16 @@
         goToStep(i);
         resetWalkTimer();
       });
+      // Pause on hover over tab
+      tab.addEventListener('mouseenter', pauseWalkTimer);
+      tab.addEventListener('mouseleave', resetWalkTimer);
     });
+
+    // Pause on hover over content area
+    if (viewport) {
+      viewport.addEventListener('mouseenter', pauseWalkTimer);
+      viewport.addEventListener('mouseleave', resetWalkTimer);
+    }
 
     window.addEventListener('resize', () => {
       const activeTab = document.querySelector('[data-walk-tab].active') as HTMLElement;

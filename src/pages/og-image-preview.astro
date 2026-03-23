@@ -1,0 +1,268 @@
+---
+// OG Image Preview — fixed 1200×630 card, scaled to fit viewport
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OG Image Preview — OpenCauldron</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: oklch(0.08 0.02 280);
+        padding: 24px;
+      }
+
+      .og-scaler {
+        width: 1200px;
+        height: 630px;
+        flex-shrink: 0;
+        transform-origin: top center;
+      }
+
+      .og-card {
+        width: 1200px;
+        height: 630px;
+        position: relative;
+        overflow: hidden;
+        font-family: 'Inter', system-ui, sans-serif;
+        background: oklch(0.12 0.02 280);
+      }
+
+      /* Ambient background gradients */
+      .og-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 70% at 15% 20%, oklch(0.25 0.12 280 / 0.6), transparent),
+          radial-gradient(ellipse 60% 80% at 85% 80%, oklch(0.22 0.10 310 / 0.5), transparent);
+        z-index: 0;
+      }
+
+      /* Subtle grid pattern */
+      .og-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(oklch(0.30 0.02 280 / 0.15) 1px, transparent 1px),
+          linear-gradient(90deg, oklch(0.30 0.02 280 / 0.15) 1px, transparent 1px);
+        background-size: 60px 60px;
+        mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 70%);
+        z-index: 0;
+      }
+
+      .og-content {
+        position: relative;
+        z-index: 1;
+        width: 1200px;
+        height: 630px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 64px 72px;
+      }
+
+      .og-top {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      /* Icon */
+      .og-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300));
+        box-shadow:
+          0 0 40px oklch(0.60 0.20 280 / 0.3),
+          0 0 80px oklch(0.60 0.20 300 / 0.15);
+      }
+
+      .og-icon svg {
+        width: 38px;
+        height: 38px;
+        stroke: white;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+      }
+
+      /* Title */
+      .og-title {
+        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        font-weight: 800;
+        font-size: 72px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: oklch(0.96 0.005 280);
+      }
+
+      .og-title span {
+        background: linear-gradient(135deg, oklch(0.80 0.12 280), oklch(0.68 0.19 280), oklch(0.65 0.20 310));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Tagline */
+      .og-tagline {
+        font-size: 24px;
+        font-weight: 400;
+        color: oklch(0.62 0.03 280);
+        line-height: 1.5;
+        max-width: 700px;
+      }
+
+      /* Bottom bar */
+      .og-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .og-url {
+        font-size: 20px;
+        font-weight: 500;
+        color: oklch(0.55 0.03 280);
+        letter-spacing: 0.02em;
+      }
+
+      .og-badges {
+        display: flex;
+        gap: 12px;
+      }
+
+      .og-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        border-radius: 100px;
+        font-size: 15px;
+        font-weight: 600;
+        background: oklch(0.68 0.20 325 / 0.1);
+        color: oklch(0.72 0.16 325);
+        border: 1px solid oklch(0.68 0.20 325 / 0.2);
+      }
+
+      .og-badge svg {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+      }
+
+      /* Decorative glow orbs */
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        z-index: 0;
+      }
+
+      .glow-orb-1 {
+        width: 360px;
+        height: 320px;
+        top: -60px;
+        right: -40px;
+        background: oklch(0.35 0.15 280 / 0.4);
+      }
+
+      .glow-orb-2 {
+        width: 300px;
+        height: 260px;
+        bottom: -30px;
+        left: 240px;
+        background: oklch(0.30 0.12 325 / 0.3);
+      }
+
+      /* Preview label */
+      .preview-label {
+        text-align: center;
+        margin-top: 12px;
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 12px;
+        color: oklch(0.50 0.02 280);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="og-scaler" id="og-scaler">
+      <div class="og-card">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="og-content">
+          <div class="og-top">
+            <!-- Icon -->
+            <div class="og-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/>
+                <path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/>
+              </svg>
+            </div>
+            <!-- Title -->
+            <h1 class="og-title">
+              The open source<br />
+              <span>AI media studio</span>
+            </h1>
+            <!-- Tagline -->
+            <p class="og-tagline">
+              Multiple models, asset management, and team collaboration. Your keys, your infrastructure, your data.
+            </p>
+          </div>
+          <!-- Bottom -->
+          <div class="og-bottom">
+            <span class="og-url">opencauldron.ai</span>
+            <div class="og-badges">
+              <span class="og-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                Self-hosted
+              </span>
+              <span class="og-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="currentColor" stroke="none"/></svg>
+                Open Source
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="preview-label">1200 × 630 — OG image preview</p>
+
+    <script>
+      function scaleCard() {
+        const el = document.getElementById('og-scaler');
+        const maxW = window.innerWidth - 48;
+        const maxH = window.innerHeight - 72;
+        const s = Math.min(maxW / 1200, maxH / 630, 1);
+        el.style.transform = `scale(${s})`;
+        // Collapse the extra space the unscaled element takes
+        el.style.marginBottom = `${-(630 * (1 - s))}px`;
+        el.style.marginRight = `${-(1200 * (1 - s))}px`;
+      }
+      scaleCard();
+      window.addEventListener('resize', scaleCard);
+    </script>
+  </body>
+</html>

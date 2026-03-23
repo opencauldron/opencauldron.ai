@@ -1,0 +1,195 @@
+<!-- Asset Management -->
+<section class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
+  <div class="grid gap-10 lg:grid-cols-2 items-center">
+    <!-- Copy (first on mobile, second on desktop) -->
+    <div class="order-1 lg:order-2">
+      <div class="inline-flex items-center gap-2 rounded-full bg-[var(--color-fuchsia)]/10 px-4 py-1.5 text-xs font-semibold text-[var(--color-fuchsia)] ring-1 ring-[var(--color-fuchsia)]/20 mb-6">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"/><path d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="6.5" cy="9.5" r=".5" fill="currentColor"/></svg>
+        Organized creative library
+      </div>
+      <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+        Every asset,
+        <span style="background: linear-gradient(135deg, oklch(0.68 0.20 325), oklch(0.65 0.20 300)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">searchable and tagged</span>
+      </h2>
+      <p class="mt-4 text-[var(--color-muted)] leading-relaxed">
+        Every generation is automatically catalogued with its prompt, model, parameters, and creator. Organize by brand, filter by anything, and never lose track of what your team has created.
+      </p>
+      <div class="mt-8 space-y-4">
+        <div class="flex items-start gap-3">
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-fuchsia)]/10 mt-0.5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-fuchsia)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold">Brand-scoped galleries</p>
+            <p class="text-xs text-[var(--color-muted)] mt-0.5">Each brand gets its own asset library. Keep client work separated and organized.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)]/10 mt-0.5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold">Prompt & parameter history</p>
+            <p class="text-xs text-[var(--color-muted)] mt-0.5">Every generation stores its full recipe. Reproduce or iterate on any result.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-sky)]/10 mt-0.5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-sky)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold">Filter by model, date, creator</p>
+            <p class="text-xs text-[var(--color-muted)] mt-0.5">Powerful search across your entire library. Find any asset in seconds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mockup (second on mobile, first on desktop) -->
+    <div class="space-y-4 order-2 lg:order-1">
+      <!-- Card 1: Gallery Filter Bar -->
+      <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] p-4">
+        <div class="flex flex-wrap items-center gap-2">
+          <div class="inline-flex items-center gap-1.5 rounded-lg bg-[var(--color-background)] px-3 py-1.5 ring-1 ring-[var(--color-border)]/50 text-[10px] font-medium">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            All Media
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="inline-flex items-center gap-1.5 rounded-lg bg-[var(--color-background)] px-3 py-1.5 ring-1 ring-[var(--color-border)]/50 text-[10px] font-medium">
+            All Models
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+          <div class="flex-1 min-w-[100px] flex items-center gap-1.5 rounded-lg bg-[var(--color-background)] px-3 py-1.5 ring-1 ring-[var(--color-border)]/50">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <span class="text-[10px] text-[var(--color-muted)]">Search prompts...</span>
+          </div>
+          <div class="inline-flex items-center gap-1.5 rounded-lg bg-[var(--color-background)] px-3 py-1.5 ring-1 ring-[var(--color-border)]/50 text-[10px] font-medium text-[var(--color-muted)]">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Last 30 days
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Gallery Grid -->
+      <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] p-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <!-- Thumbnail 1 -->
+          <div class="rounded-lg overflow-hidden relative aspect-square">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.35_0.12_280)] to-[oklch(0.22_0.08_310)]"></div>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-1.5">
+              <div class="flex items-center justify-between">
+                <span class="rounded bg-[var(--color-primary)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-primary)]">Flux Pro</span>
+                <span class="rounded bg-[var(--color-fuchsia)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-fuchsia)]">Acme Co</span>
+              </div>
+            </div>
+          </div>
+          <!-- Thumbnail 2 -->
+          <div class="rounded-lg overflow-hidden relative aspect-square">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.30_0.10_195)] to-[oklch(0.20_0.06_220)]"></div>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-1.5">
+              <div class="flex items-center justify-between">
+                <span class="rounded bg-[var(--color-sky)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-sky)]">Imagen 4</span>
+                <span class="rounded bg-[var(--color-fuchsia)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-fuchsia)]">Acme Co</span>
+              </div>
+            </div>
+          </div>
+          <!-- Thumbnail 3 (Video) -->
+          <div class="rounded-lg overflow-hidden relative aspect-square">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.35_0.14_325)] to-[oklch(0.22_0.10_340)]"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="h-6 w-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-1.5">
+              <div class="flex items-center justify-between">
+                <span class="rounded bg-[var(--color-violet)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-violet)]">Sora 2</span>
+                <span class="rounded bg-[var(--color-teal)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-teal)]">Widget Inc</span>
+              </div>
+            </div>
+          </div>
+          <!-- Thumbnail 4 -->
+          <div class="rounded-lg overflow-hidden relative aspect-square">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.32_0.08_55)] to-[oklch(0.20_0.04_30)]"></div>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-1.5">
+              <div class="flex items-center justify-between">
+                <span class="rounded bg-[var(--color-sky)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-sky)]">DALL-E 3</span>
+                <span class="rounded bg-[var(--color-fuchsia)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-fuchsia)]">Acme Co</span>
+              </div>
+            </div>
+          </div>
+          <!-- Thumbnail 5 -->
+          <div class="rounded-lg overflow-hidden relative aspect-square">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.30_0.12_240)] to-[oklch(0.20_0.08_260)]"></div>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-1.5">
+              <div class="flex items-center justify-between">
+                <span class="rounded bg-[var(--color-primary)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-primary)]">Ideogram</span>
+                <span class="rounded bg-[var(--color-teal)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-teal)]">Widget Inc</span>
+              </div>
+            </div>
+          </div>
+          <!-- Thumbnail 6 -->
+          <div class="rounded-lg overflow-hidden relative aspect-square">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.28_0.10_145)] to-[oklch(0.18_0.06_160)]"></div>
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent p-1.5">
+              <div class="flex items-center justify-between">
+                <span class="rounded bg-[var(--color-primary)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-primary)]">Flux Pro</span>
+                <span class="rounded bg-[var(--color-fuchsia)]/25 px-1 py-0.5 text-[7px] font-medium text-[var(--color-fuchsia)]">Acme Co</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Asset Detail Preview -->
+      <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] p-5">
+        <p class="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider mb-3">ASSET DETAILS</p>
+
+        <!-- Prompt -->
+        <div class="mb-3">
+          <p class="text-[10px] text-[var(--color-muted)] mb-1">Prompt</p>
+          <p class="text-xs leading-relaxed text-[var(--color-foreground)]/80 bg-[var(--color-background)] rounded-lg p-2.5 ring-1 ring-[var(--color-border)]/50 font-mono">
+            A glowing cauldron made of obsidian stone, bubbling with iridescent purple liquid, ancient runes floating upward...
+          </p>
+        </div>
+
+        <!-- Badges -->
+        <div class="flex flex-wrap items-center gap-1.5 mb-3">
+          <span class="inline-flex items-center gap-1 rounded-full bg-[var(--color-primary)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--color-primary)] ring-1 ring-[var(--color-primary)]/20">
+            <span class="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]"></span>
+            Flux Pro
+          </span>
+          <span class="rounded-full bg-[var(--color-sky)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--color-sky)] ring-1 ring-[var(--color-sky)]/20">
+            Black Forest Labs
+          </span>
+          <span class="rounded-full bg-[var(--color-fuchsia)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--color-fuchsia)] ring-1 ring-[var(--color-fuchsia)]/20">
+            Acme Co
+          </span>
+        </div>
+
+        <!-- Parameters grid -->
+        <div class="grid grid-cols-3 gap-2">
+          <div class="rounded-lg bg-[var(--color-background)] p-2 ring-1 ring-[var(--color-border)]/50">
+            <p class="text-[9px] text-[var(--color-muted)]">Aspect Ratio</p>
+            <p class="text-[11px] font-medium tabular-nums">16:9</p>
+          </div>
+          <div class="rounded-lg bg-[var(--color-background)] p-2 ring-1 ring-[var(--color-border)]/50">
+            <p class="text-[9px] text-[var(--color-muted)]">Dimensions</p>
+            <p class="text-[11px] font-medium tabular-nums">1920 x 1080</p>
+          </div>
+          <div class="rounded-lg bg-[var(--color-background)] p-2 ring-1 ring-[var(--color-border)]/50">
+            <p class="text-[9px] text-[var(--color-muted)]">Steps</p>
+            <p class="text-[11px] font-medium tabular-nums">28</p>
+          </div>
+        </div>
+
+        <!-- Creator row -->
+        <div class="flex items-center gap-2 mt-3 pt-3 border-t border-[var(--color-border)]/50">
+          <div class="h-5 w-5 rounded-full bg-gradient-to-br from-[var(--color-teal)] to-[var(--color-sky)] shrink-0"></div>
+          <span class="text-[10px] font-medium">Adam L.</span>
+          <span class="text-[10px] text-[var(--color-muted)]">3 hours ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
