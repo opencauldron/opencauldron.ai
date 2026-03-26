@@ -41,6 +41,8 @@ export default defineConfig({
             { slug: 'docs/guides/parameters' },
             { slug: 'docs/guides/prompts' },
             { slug: 'docs/guides/image-editing' },
+            { slug: 'docs/guides/loras' },
+            { slug: 'docs/guides/brews' },
             { slug: 'docs/guides/gallery' },
           ],
         },
@@ -77,6 +79,12 @@ export default defineConfig({
         {
           label: 'Reference',
           autogenerate: { directory: 'docs/reference' },
+        },
+        {
+          label: 'Releases',
+          items: [
+            { slug: 'docs/changelog' },
+          ],
         },
       ],
       lastUpdated: true,
