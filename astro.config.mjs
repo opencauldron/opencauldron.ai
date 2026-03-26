@@ -44,6 +44,7 @@ export default defineConfig({
             { slug: 'docs/guides/loras' },
             { slug: 'docs/guides/brews' },
             { slug: 'docs/guides/gallery' },
+            { slug: 'docs/guides/references' },
           ],
         },
         {

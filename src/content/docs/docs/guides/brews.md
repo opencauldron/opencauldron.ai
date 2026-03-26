@@ -49,6 +49,7 @@ Click any brew to load it. The page immediately:
 - Switches to the brew's model (and switches between image and video mode if needed)
 - Restores all parameters (aspect ratio, seed, style, etc.)
 - Restores the LoRA selection and weights
+- Restores the reference image, if one was active when the brew was saved
 - Pre-fills the prompt, if the brew was saved with one
 
 A confirmation toast appears when the brew loads successfully.
@@ -85,3 +86,4 @@ Editing a brew only changes the name and description — it does not change the 
 - **Iterate from a brew** — load a brew, change a single parameter (like seed or aspect ratio), generate, and save the variation as a new brew under a different name.
 - **Template brews** — save a brew without a prompt to create a reusable style template. Each time you load it you write a new subject while keeping the same model and LoRA stack.
 - **LoRA stacks** — brews preserve LoRA selection and individual weight values, making them the easiest way to rebuild a complex multi-LoRA setup.
+- **Reference + brew** — if you are producing a series of variations from the same reference image, save the brew with that reference loaded. When you share the brew or reload it later, the reference is restored automatically.

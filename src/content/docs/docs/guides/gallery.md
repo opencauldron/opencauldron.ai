@@ -44,6 +44,7 @@ Click any asset to open the detail dialog. The left side shows the full image or
 - **Enhanced prompt** — the AI-rewritten version, if prompt enhancement was enabled
 - **Model and provider** — the model name and the provider it ran on
 - **Parameters** — any generation parameters that were set (aspect ratio, style, seed, etc.)
+- **Reference Image** — if a reference image was used, a clickable thumbnail appears here; click it to open the original reference in a new tab
 - **Dimensions** — width × height in pixels and file size for images
 - **Duration and audio** — for videos, clip length in seconds and whether audio is present
 - **Creator** — the team member who generated the asset
@@ -74,6 +75,16 @@ In the **Brand** section of the detail panel, every brand in your workspace is l
 Changes take effect immediately. The grid card updates to reflect the new brand tags the next time you open the same asset.
 
 To set up brands or manage their names and colors, see [Brand Management](/docs/guides/brands).
+
+## Using an image as a reference
+
+For any image asset, the lightbox footer shows a **Reference** button. Clicking it:
+
+1. Closes the lightbox
+2. Navigates to the **Generate** page
+3. Pre-loads the image as the reference input
+
+From there you can write a prompt and generate a new image that draws from the selected gallery image. See [References](/docs/guides/references) for more on how reference images work.
 
 ## Animating an image
 

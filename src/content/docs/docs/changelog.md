@@ -3,6 +3,24 @@ title: Changelog
 description: Release history and notable changes for OpenCauldron.
 ---
 
+## 2026-03-26
+
+### References
+
+- Every uploaded reference image is now tracked in a references library with full metadata: dimensions, file size, MIME type, thumbnail, and usage count.
+- New **/references page** accessible from the sidebar — a browsable gallery of all uploaded reference images with grid view, infinite scroll, lightbox detail view, download, delete, and Use actions.
+- The reference image section on the Generate page now offers two options: **Upload** (new file) and **Browse** (pick from existing). The Browse dialog has two tabs — **Uploads** (previously uploaded references) and **Gallery** (past generations to reuse as references).
+- Gallery lightbox now shows a **Reference** button on image assets, navigating to the Generate page with that image pre-loaded.
+- Gallery lightbox shows the reference image thumbnail in the parameters panel when a reference was used during generation.
+- Reference images (`imageInput`) are now saved and restored with Brews, so saved recipes preserve which reference image was used.
+- Usage count increments each time a reference image is used in a generation.
+
+### Navigation
+
+- Added **References** entry to the application sidebar.
+
+---
+
 ## 2026-03-25
 
 ### LoRA support
