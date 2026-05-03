@@ -303,6 +303,7 @@ const hostedBullets = [
     const modePanels = document.querySelectorAll<HTMLElement>('[data-mode-panel]');
     const modeStats = document.querySelectorAll<HTMLElement>('[data-mode-stat]');
     const modeSections = document.querySelectorAll<HTMLElement>('[data-mode-section]');
+    const modeUrls = document.querySelectorAll<HTMLElement>('[data-mode-url]');
     const activeGradient = 'linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300))';
 
     function setMode(mode: string) {
@@ -331,6 +332,10 @@ const hostedBullets = [
       modeSections.forEach(s => {
         const match = s.getAttribute('data-mode-section') === mode;
         s.classList.toggle('hidden', !match);
+      });
+      modeUrls.forEach(el => {
+        const url = el.getAttribute(`data-url-${mode}`);
+        if (url) el.textContent = url;
       });
     }
 
