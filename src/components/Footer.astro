@@ -1,3 +1,14 @@
+---
+import {
+  GITHUB_REPO,
+  GITHUB_LICENSE,
+  DOCS_INTRO,
+  DOCS_CHANGELOG,
+  DOCS_CONTRIBUTING,
+  DISCORD_INVITE,
+} from "../config";
+---
+
 <!-- Footer -->
 <footer class="relative z-10 border-t border-[var(--color-border)] py-8 sm:py-10">
   <div class="mx-auto max-w-6xl px-4 sm:px-6">
@@ -15,7 +26,7 @@
         </div>
         <p class="text-xs text-[var(--color-muted)]">
           Source-available under the
-          <a href="https://github.com/opencauldron/opencauldron/blob/main/LICENSE" target="_blank" rel="noopener" class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors">Sustainable Use License</a>
+          <a href={GITHUB_LICENSE} target="_blank" rel="noopener" class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors">Sustainable Use License</a>
         </p>
       </div>
 
@@ -23,14 +34,14 @@
       <div class="flex gap-12 text-sm">
         <div class="flex flex-col gap-2.5">
           <p class="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">Project</p>
-          <a href="https://docs.opencauldron.ai/introduction/" class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors">Documentation</a>
-          <a href="https://github.com/opencauldron/opencauldron" target="_blank" rel="noopener" class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors">GitHub</a>
-          <a href="https://docs.opencauldron.ai/changelog/" class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors">Changelog</a>
+          <a href={DOCS_INTRO} class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors">Documentation</a>
+          <a href={GITHUB_REPO} target="_blank" rel="noopener" class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors">GitHub</a>
+          <a href={DOCS_CHANGELOG} class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors">Changelog</a>
         </div>
         <div class="flex flex-col gap-2.5">
           <p class="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">Community</p>
-          <a href="https://discord.gg/FPtVrx4w" target="_blank" rel="noopener" class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors text-sm">Discord</a>
-          <a href="https://docs.opencauldron.ai/contributing/contributing-to-docs/" class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors">Contributing</a>
+          <a href={DISCORD_INVITE} target="_blank" rel="noopener" class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors text-sm">Discord</a>
+          <a href={DOCS_CONTRIBUTING} class="text-[var(--color-foreground)] hover:text-[var(--color-primary)] transition-colors">Contributing</a>
         </div>
       </div>
     </div>

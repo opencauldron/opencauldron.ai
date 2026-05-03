@@ -6,6 +6,7 @@ import TechStack from "../components/TechStack.astro";
 import CommunityCTA from "../components/CommunityCTA.astro";
 import Footer from "../components/Footer.astro";
 import ComingSoonModal from "../components/ComingSoonModal.astro";
+import { GITHUB_REPO, GITHUB_LICENSE, GITHUB_GOOD_FIRST_ISSUES } from "../config";
 
 const contributionAreas = [
   {
@@ -71,8 +72,8 @@ const accentVar: Record<string, string> = {
 ---
 
 <Layout
-  title="Contribute to OpenCauldron — the open-source AI media studio"
-  description="Build the open AI media studio. Architecture, license, codebase, and how to ship your first PR. Source-available under the Sustainable Use License."
+  title="Contribute to OpenCauldron — the open-source AI creative studio"
+  description="Build the open AI creative studio. Architecture, license, codebase, and how to ship your first PR. Source-available under the Sustainable Use License."
 >
   <Particles />
   <Navbar />
@@ -96,7 +97,7 @@ const accentVar: Record<string, string> = {
       <h1 class="animate-fade-up delay-100 font-heading text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl max-w-4xl">
         Build the open
         <span class="block leading-[1.2] pb-1" style="background: linear-gradient(135deg, oklch(0.70 0.14 195) 0%, oklch(0.65 0.20 280) 45%, oklch(0.65 0.20 310) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          AI media studio
+          AI creative studio
         </span>
       </h1>
 
@@ -107,13 +108,13 @@ const accentVar: Record<string, string> = {
 
       <!-- CTAs -->
       <div class="animate-fade-up delay-300 mt-10 flex flex-col sm:flex-row items-center gap-4">
-        <a href="https://github.com/opencauldron/opencauldron" target="_blank" rel="noopener"
+        <a href={GITHUB_REPO} target="_blank" rel="noopener"
           class="inline-flex h-12 items-center gap-2.5 rounded-xl px-7 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-[var(--color-primary)]/20 active:translate-y-px animate-shimmer"
           style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300), oklch(0.68 0.19 280), oklch(0.60 0.22 260));">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
           View on GitHub
         </a>
-        <a href="https://github.com/opencauldron/opencauldron/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22"
+        <a href={GITHUB_GOOD_FIRST_ISSUES}
           target="_blank" rel="noopener"
           class="inline-flex h-12 items-center gap-2 rounded-xl px-7 text-sm font-medium text-[var(--color-foreground)] ring-1 ring-[var(--color-border)] hover:ring-[var(--color-primary)]/40 hover:bg-[var(--color-card)] transition-all">
           Browse good first issues
@@ -165,7 +166,7 @@ const accentVar: Record<string, string> = {
 
     <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] p-8 sm:p-10 space-y-5 text-sm leading-relaxed text-[var(--color-muted)]">
       <p>
-        OpenCauldron uses the <a href="https://github.com/opencauldron/opencauldron/blob/main/LICENSE" target="_blank" rel="noopener" class="text-[var(--color-primary)] underline decoration-[var(--color-primary)]/30 underline-offset-2 hover:decoration-[var(--color-primary)] transition-all">Sustainable Use License</a> &mdash; the same license n8n uses. Source is open. Code is auditable. You can fork, modify, redistribute, and self-host freely for any internal business or personal use.
+        OpenCauldron uses the <a href={GITHUB_LICENSE} target="_blank" rel="noopener" class="text-[var(--color-primary)] underline decoration-[var(--color-primary)]/30 underline-offset-2 hover:decoration-[var(--color-primary)] transition-all">Sustainable Use License</a> &mdash; the same license n8n uses. Source is open. Code is auditable. You can fork, modify, redistribute, and self-host freely for any internal business or personal use.
       </p>
       <p>
         The one thing the license prevents is third parties selling OpenCauldron as a commercial service that competes with us. That&rsquo;s what keeps the project sustainable while staying open to almost everyone who wants to use, learn from, or improve it.
