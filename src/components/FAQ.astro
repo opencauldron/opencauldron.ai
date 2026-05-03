@@ -14,7 +14,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </summary>
       <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
-        Yes. OpenCauldron is 100% free and open source under the MIT license. You pay only for the AI model API usage directly to the providers (Google, Replicate, etc.) using your own API keys. There are no platform fees, subscriptions, or hidden costs.
+        Depends on how you run it. <strong>Self-host</strong> is free and source-available under the Sustainable Use License — you only pay providers like Google or Replicate directly for AI model API usage with your own keys. <strong>Cloud</strong> is free during invite-only beta; paid tiers will come later, and you can always bring your own provider keys to keep costs predictable.
       </div>
     </details>
 
@@ -44,7 +44,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </summary>
       <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
-        OpenCauldron itself doesn't handle billing — your API keys are charged directly by each provider at their standard rates. The built-in usage dashboard tracks every generation's cost so you always know what you're spending, broken down by user, model, and brand.
+        On <strong>self-host</strong>, OpenCauldron doesn't handle billing — your API keys are charged directly by each provider at their standard rates. On <strong>Cloud</strong>, you'll see provider costs the same way plus a monthly subscription for the hosted convenience (free during beta). Either way, the built-in usage dashboard breaks down every generation's cost by user, model, and brand.
       </div>
     </details>
 
@@ -54,7 +54,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </summary>
       <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
-        Everything stays on your infrastructure. Prompts and metadata go to your PostgreSQL database, generated images are stored in your Cloudflare R2 bucket (or any S3-compatible storage). OpenCauldron never phones home or collects telemetry.
+        On <strong>self-host</strong>, everything stays on your infrastructure — prompts and metadata in your PostgreSQL database, generated assets in your Cloudflare R2 bucket (or any S3-compatible storage). The self-hosted build never phones home or collects telemetry. On <strong>Cloud</strong>, your data lives in our managed PostgreSQL and R2 with per-workspace isolation — same code as self-host, just running for you.
       </div>
     </details>
 
@@ -64,7 +64,17 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
       </summary>
       <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
-        A hosted version is on the roadmap. For now, OpenCauldron is self-hosted — but deploying with Docker or Vercel takes just a few minutes. Check the installation docs for step-by-step instructions.
+        Yes — <strong>OpenCauldron Cloud</strong> is the hosted version of the studio. Sign in with Google, get a workspace, start generating — no Docker, no setup. It's in invite-only beta right now; request a spot from the Cloud toggle at the top of the page. Prefer to run your own? Docker takes a few minutes — see the installation docs.
+      </div>
+    </details>
+
+    <details class="group rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] transition-all hover:ring-[var(--color-primary)]/20">
+      <summary class="flex cursor-pointer items-center justify-between p-5 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+        What license is OpenCauldron under?
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200 group-open:rotate-45 text-[var(--color-muted)]"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      </summary>
+      <div class="px-5 pb-5 text-sm leading-relaxed text-[var(--color-muted)]">
+        OpenCauldron is released under the <a href="https://github.com/opencauldron/opencauldron/blob/main/LICENSE" target="_blank" rel="noopener" class="text-[var(--color-primary)] hover:underline">Sustainable Use License</a> — the same license n8n uses. It's source-available: free for any internal business, personal, or non-commercial use, free to fork, modify, and contribute back. The one thing it prevents is third parties selling it as a competing commercial service. This keeps the project sustainable while staying open to almost everyone who wants to use or improve it.
       </div>
     </details>
   </div>

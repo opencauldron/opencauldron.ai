@@ -1,103 +1,335 @@
 ---
+// Self-host install methods — match the canonical docs at
+// docs.opencauldron.ai/installation. Docker is the recommended path.
 const installMethods = [
-  { label: "npm", commands: ["npx create-opencauldron@latest"] },
-  { label: "git", commands: ["git clone https://github.com/opencauldron/opencauldron", "cd opencauldron", "bun install", "bun run dev"] },
-  { label: "docker", commands: ["docker run -p 3000:3000 ghcr.io/opencauldron/opencauldron:latest"] },
+  {
+    label: "docker",
+    badge: "Recommended",
+    commands: [
+      "curl -O https://raw.githubusercontent.com/opencauldron/opencauldron/main/docker-compose.yml",
+      "curl -o .env https://raw.githubusercontent.com/opencauldron/opencauldron/main/.env.example",
+      "# edit .env: GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, WORKSPACE_NAME, ADMIN_EMAIL",
+      "docker compose up -d",
+    ],
+  },
+  {
+    label: "git",
+    commands: [
+      "git clone https://github.com/opencauldron/opencauldron",
+      "cd opencauldron",
+      "pnpm install",
+      "pnpm run dev",
+    ],
+  },
+  {
+    label: "fork",
+    commands: [
+      "git clone https://github.com/opencauldron/opencauldron my-studio",
+      "cd my-studio",
+      "pnpm install",
+      "pnpm setup",
+    ],
+  },
+];
+
+const hostedBullets = [
+  { title: "No setup", desc: "Sign in with Google, get a workspace, start generating in seconds." },
+  { title: "Free during beta", desc: "Free credits while we're in invite-only beta. Paid tiers later." },
+  { title: "Bring your own keys", desc: "Use your own OpenAI / Replicate / model provider keys — or use ours." },
+  { title: "Same open code", desc: "Identical to the source-available studio you can self-host. No lock-in." },
 ];
 ---
 
 <!-- Hero -->
 <section class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 pt-16 pb-14 sm:pt-32 sm:pb-28">
   <div class="flex flex-col items-center text-center">
-    <!-- Badge -->
-    <div class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-[var(--color-fuchsia)]/10 px-4 py-1.5 text-xs font-semibold text-[var(--color-fuchsia)] ring-1 ring-[var(--color-fuchsia)]/20 mb-8">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/>
-        <path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/>
-      </svg>
-      Free &middot; Open Source &middot; Self-hosted
+    <!-- Mode toggle: Self-hosted / Hosted -->
+    <div
+      class="animate-fade-up mb-6 inline-flex items-center rounded-full ring-1 ring-[var(--color-border)] bg-[var(--color-card)]/60 p-1 backdrop-blur-sm"
+      role="tablist"
+      aria-label="Choose how you want to run OpenCauldron"
+      id="mode-toggle"
+    >
+      <button
+        type="button"
+        role="tab"
+        aria-selected="true"
+        data-mode="hosted"
+        class="mode-btn px-4 sm:px-5 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all cursor-pointer text-white"
+        style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300));"
+      >
+        Cloud
+      </button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        data-mode="self-hosted"
+        class="mode-btn px-4 sm:px-5 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all cursor-pointer text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
+      >
+        Self-host
+      </button>
     </div>
 
-    <!-- Heading -->
-    <h1 class="animate-fade-up delay-100 font-heading text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl max-w-4xl">
-      The open source
-      <span class="block" style="background: linear-gradient(135deg, oklch(0.80 0.12 280), oklch(0.68 0.19 280), oklch(0.65 0.20 310)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-        AI media studio
-      </span>
-    </h1>
+    <!-- ============== SELF-HOSTED PANEL ============== -->
+    <div data-mode-panel="self-hosted" class="hidden w-full flex-col items-center">
+      <!-- Badge -->
+      <div class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-[var(--color-fuchsia)]/10 px-4 py-1.5 text-xs font-semibold text-[var(--color-fuchsia)] ring-1 ring-[var(--color-fuchsia)]/20 mb-8">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/>
+          <path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/>
+        </svg>
+        Free &middot; Open Source &middot; Self-hosted
+      </div>
 
-    <!-- Subheading -->
-    <p class="animate-fade-up delay-200 mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
-      The AI media studio for creators, teams, and brands. Your keys, your infrastructure, your data.
-    </p>
+      <!-- Heading -->
+      <h1 class="animate-fade-up delay-100 font-heading text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl max-w-4xl">
+        The open source
+        <span class="block leading-[1.2] pb-1" style="background: linear-gradient(135deg, oklch(0.80 0.12 280), oklch(0.68 0.19 280), oklch(0.65 0.20 310)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          AI media studio
+        </span>
+      </h1>
 
-    <!-- Install methods -->
-    <div class="animate-fade-up delay-300 mt-10 w-full max-w-2xl">
-      <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] overflow-hidden shadow-2xl shadow-[var(--color-primary)]/5">
-        <!-- Tab bar -->
-        <div class="flex items-center border-b border-[var(--color-border)]" id="install-tabs">
-          {installMethods.map((method, i) => (
-            <button
-              data-tab={i}
-              class:list={[
-                "install-tab px-5 py-3 text-xs font-medium transition-colors border-b-2 cursor-pointer",
-                i === 0
-                  ? "text-[var(--color-primary)] border-[var(--color-primary)]"
-                  : "text-[var(--color-muted)] border-transparent hover:text-[var(--color-foreground)]",
-              ]}
-            >
-              {method.label}
+      <!-- Subheading -->
+      <p class="animate-fade-up delay-200 mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        Run it on your own infra in minutes. Your keys, your database, your data — source-available under the Sustainable Use License, free to fork and self-host.
+      </p>
+
+      <!-- Install methods -->
+      <div class="animate-fade-up delay-300 mt-10 w-full max-w-2xl">
+        <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] overflow-hidden shadow-2xl shadow-[var(--color-primary)]/5">
+          <!-- Tab bar -->
+          <div class="flex items-center border-b border-[var(--color-border)]" id="install-tabs">
+            {installMethods.map((method, i) => (
+              <button
+                type="button"
+                data-tab={i}
+                class:list={[
+                  "install-tab inline-flex items-center gap-2 px-4 sm:px-5 py-3 text-xs font-medium transition-colors border-b-2 cursor-pointer",
+                  i === 0
+                    ? "text-[var(--color-primary)] border-[var(--color-primary)]"
+                    : "text-[var(--color-muted)] border-transparent hover:text-[var(--color-foreground)]",
+                ]}
+              >
+                {method.label}
+                {method.badge && (
+                  <span class="hidden sm:inline rounded-full bg-[var(--color-primary)]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary)]">
+                    {method.badge}
+                  </span>
+                )}
+              </button>
+            ))}
+            <div class="flex-1" />
+            <button id="copy-btn" type="button" class="px-4 py-3 text-xs text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors cursor-pointer" title="Copy to clipboard">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
             </button>
-          ))}
-          <div class="flex-1" />
-          <button id="copy-btn" class="px-4 py-3 text-xs text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors cursor-pointer" title="Copy to clipboard">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-          </button>
+          </div>
+          <!-- Command panels -->
+          <div class="p-4 sm:p-5 font-mono text-xs sm:text-sm leading-relaxed text-left overflow-x-auto">
+            {installMethods.map((method, i) => (
+              <div data-panel={i} class:list={["install-panel", i !== 0 && "hidden"]}>
+                {method.commands.map((cmd, j) => {
+                  const colors = ['var(--color-sky)', 'var(--color-primary)', 'var(--color-fuchsia)', 'var(--color-violet)'];
+                  const isComment = cmd.startsWith('#');
+                  return (
+                    <p class:list={[j > 0 && "mt-1", "whitespace-pre"]}>
+                      {isComment ? (
+                        <span class="text-[var(--color-muted)]/70">{cmd}</span>
+                      ) : (
+                        <>
+                          <span class="text-[var(--color-muted)]">$</span>{' '}
+                          <span style={`color: ${colors[j % colors.length]}`}>{cmd}</span>
+                        </>
+                      )}
+                    </p>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
         </div>
-        <!-- Command panels -->
-        <div class="p-4 sm:p-5 font-mono text-xs sm:text-sm leading-relaxed text-left overflow-x-auto">
-          {installMethods.map((method, i) => (
-            <div data-panel={i} class:list={["install-panel", i !== 0 && "hidden"]}>
-              {method.commands.map((cmd, j) => {
-                const colors = ['var(--color-sky)', 'var(--color-primary)', 'var(--color-fuchsia)', 'var(--color-violet)'];
-                return (
-                  <p class:list={[j > 0 && "mt-1"]}><span class="text-[var(--color-muted)]">$</span> <span style={`color: ${colors[j % colors.length]}`}>{cmd}</span></p>
-                );
-              })}
-            </div>
-          ))}
-        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="animate-fade-up delay-400 mt-8 flex flex-col sm:flex-row items-center gap-4">
+        <a href="https://github.com/opencauldron/opencauldron" target="_blank" rel="noopener"
+          class="inline-flex h-12 items-center gap-2.5 rounded-xl px-7 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-[var(--color-primary)]/20 active:translate-y-px animate-shimmer"
+          style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300), oklch(0.68 0.19 280), oklch(0.60 0.22 260));">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+        <a href="https://docs.opencauldron.ai/installation/"
+          class="inline-flex h-12 items-center gap-2 rounded-xl px-7 text-sm font-medium text-[var(--color-foreground)] ring-1 ring-[var(--color-border)] hover:ring-[var(--color-primary)]/40 hover:bg-[var(--color-card)] transition-all">
+          Installation guide
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+        </a>
       </div>
     </div>
 
-    <!-- CTAs -->
-    <div class="animate-fade-up delay-400 mt-8 flex flex-col sm:flex-row items-center gap-4">
-      <a href="https://github.com/opencauldron/opencauldron" target="_blank" rel="noopener"
-        class="inline-flex h-12 items-center gap-2.5 rounded-xl px-7 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-[var(--color-primary)]/20 active:translate-y-px animate-shimmer"
-        style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300), oklch(0.68 0.19 280), oklch(0.60 0.22 260));">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        View on GitHub
-      </a>
-      <a href="/docs/introduction/"
-        class="inline-flex h-12 items-center gap-2 rounded-xl px-7 text-sm font-medium text-[var(--color-foreground)] ring-1 ring-[var(--color-border)] hover:ring-[var(--color-primary)]/40 hover:bg-[var(--color-card)] transition-all">
-        Read the Docs
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-      </a>
+    <!-- ============== HOSTED PANEL ============== -->
+    <div data-mode-panel="hosted" class="w-full flex flex-col items-center">
+      <!-- Badge -->
+      <div class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)]/10 px-4 py-1.5 text-xs font-semibold text-[var(--color-primary)] ring-1 ring-[var(--color-primary)]/20 mb-8">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/>
+          <path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/>
+        </svg>
+        OpenCauldron Cloud &middot; Invite-only beta
+      </div>
+
+      <!-- Heading -->
+      <h1 class="animate-fade-up delay-100 font-heading text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl max-w-4xl">
+        Sign in and
+        <span class="block leading-[1.2] pb-1" style="background: linear-gradient(135deg, oklch(0.80 0.12 280), oklch(0.68 0.19 280), oklch(0.65 0.20 310)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          start creating
+        </span>
+      </h1>
+
+      <!-- Subheading -->
+      <p class="animate-fade-up delay-200 mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        The hosted version of the open-source studio. Sign in with Google, get a workspace, start generating &mdash; no Docker, no setup. Free during beta.
+      </p>
+
+      <!-- Waitlist + bullets card -->
+      <div class="animate-fade-up delay-300 mt-10 w-full max-w-2xl">
+        <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] overflow-hidden shadow-2xl shadow-[var(--color-primary)]/5">
+          <!-- Waitlist form -->
+          <div class="p-5 sm:p-6 border-b border-[var(--color-border)]">
+            <form
+              id="cloud-waitlist-form"
+              name="cloud-waitlist"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              class="flex flex-col sm:flex-row gap-3 text-left"
+            >
+              <input type="hidden" name="form-name" value="cloud-waitlist" />
+              <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+              <div class="flex-1">
+                <label class="block text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider mb-2">
+                  Work email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="you@company.com"
+                  class="w-full rounded-lg bg-[var(--color-background)] px-4 py-3 text-sm text-[var(--color-foreground)] ring-1 ring-[var(--color-border)] focus:ring-[var(--color-primary)] focus:outline-none transition-all placeholder:text-[var(--color-muted)]/50"
+                />
+              </div>
+              <button
+                type="submit"
+                class="shrink-0 inline-flex h-12 items-center justify-center self-end gap-2 rounded-lg px-6 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-[var(--color-primary)]/20 active:translate-y-px animate-shimmer"
+                style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300), oklch(0.68 0.19 280), oklch(0.60 0.22 260));"
+              >
+                Join the beta
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </form>
+            <div id="cloud-waitlist-success" class="hidden flex items-center gap-3 text-left">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-teal)]/10">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-[var(--color-foreground)]">You're on the list.</p>
+                <p class="text-xs text-[var(--color-muted)]">We'll be in touch as we open beta invites.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature bullets -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-[var(--color-border)]">
+            {hostedBullets.map((b, i) => (
+              <div class:list={[
+                "p-4 sm:p-5 text-left",
+                i >= 2 && "sm:border-t sm:border-[var(--color-border)]",
+              ]}>
+                <div class="flex items-start gap-3">
+                  <div class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[var(--color-primary)]/10 ring-1 ring-[var(--color-primary)]/20">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-[var(--color-foreground)]">{b.title}</p>
+                    <p class="text-xs text-[var(--color-muted)] mt-1 leading-relaxed">{b.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="animate-fade-up delay-400 mt-8 flex flex-col sm:flex-row items-center gap-4">
+        <button
+          type="button"
+          data-switch-mode="self-hosted"
+          class="inline-flex h-12 items-center gap-2 rounded-xl px-7 text-sm font-medium text-[var(--color-foreground)] ring-1 ring-[var(--color-border)] hover:ring-[var(--color-primary)]/40 hover:bg-[var(--color-card)] transition-all cursor-pointer bg-transparent"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Prefer to self-host? It's free
+        </button>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Install tab switching script -->
+<!-- Hidden Netlify form registration so the build picks up cloud-waitlist -->
+<form name="cloud-waitlist" netlify netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email" />
+  <input name="bot-field" />
+</form>
+
+<!-- Mode toggle + install tab + copy button + waitlist submit -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.install-tab');
-    const panels = document.querySelectorAll('.install-panel');
-    const copyBtn = document.getElementById('copy-btn');
+    // ----- Mode toggle (Self-hosted / Hosted) -----
+    const modeBtns = document.querySelectorAll<HTMLButtonElement>('.mode-btn');
+    const modePanels = document.querySelectorAll<HTMLElement>('[data-mode-panel]');
+    const activeGradient = 'linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300))';
+
+    function setMode(mode: string) {
+      modeBtns.forEach(btn => {
+        const active = btn.dataset.mode === mode;
+        btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        if (active) {
+          btn.classList.add('text-white');
+          btn.classList.remove('text-[var(--color-muted)]', 'hover:text-[var(--color-foreground)]');
+          btn.style.background = activeGradient;
+        } else {
+          btn.classList.remove('text-white');
+          btn.classList.add('text-[var(--color-muted)]', 'hover:text-[var(--color-foreground)]');
+          btn.style.background = '';
+        }
+      });
+      modePanels.forEach(p => {
+        const match = p.getAttribute('data-mode-panel') === mode;
+        p.classList.toggle('hidden', !match);
+        p.classList.toggle('flex', match);
+      });
+    }
+
+    modeBtns.forEach(btn => {
+      btn.addEventListener('click', () => setMode(btn.dataset.mode || 'self-hosted'));
+    });
+
+    // Inline buttons that switch mode (e.g. "Prefer to self-host?")
+    document.querySelectorAll<HTMLElement>('[data-switch-mode]').forEach(el => {
+      el.addEventListener('click', () => {
+        const target = el.getAttribute('data-switch-mode') || 'self-hosted';
+        setMode(target);
+        document.querySelector('#mode-toggle')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // ----- Install tabs -----
+    const tabs = document.querySelectorAll<HTMLButtonElement>('.install-tab');
+    const panels = document.querySelectorAll<HTMLElement>('.install-panel');
+    const copyBtn = document.getElementById('copy-btn') as HTMLButtonElement | null;
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         const idx = tab.getAttribute('data-tab');
-
         tabs.forEach(t => {
           t.classList.remove('text-[var(--color-primary)]', 'border-[var(--color-primary)]');
           t.classList.add('text-[var(--color-muted)]', 'border-transparent');
@@ -111,11 +343,38 @@ const installMethods = [
     });
 
     copyBtn?.addEventListener('click', () => {
-      const visible = document.querySelector('.install-panel:not(.hidden)');
-      const text = visible?.textContent?.replace('$ ', '').trim() || '';
+      const visible = document.querySelector<HTMLElement>('.install-panel:not(.hidden)');
+      if (!visible) return;
+      // Strip the leading "$ " prompts and skip comment lines so the copied
+      // text is paste-ready.
+      const text = Array.from(visible.querySelectorAll('p'))
+        .map(p => p.textContent?.trim() || '')
+        .filter(line => line && !line.startsWith('#'))
+        .map(line => line.replace(/^\$\s+/, ''))
+        .join('\n');
       navigator.clipboard.writeText(text);
       copyBtn.title = 'Copied!';
       setTimeout(() => { copyBtn.title = 'Copy to clipboard'; }, 2000);
+    });
+
+    // ----- Cloud waitlist submission (Netlify-friendly) -----
+    const waitlistForm = document.getElementById('cloud-waitlist-form') as HTMLFormElement | null;
+    const waitlistSuccess = document.getElementById('cloud-waitlist-success');
+    waitlistForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(waitlistForm);
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data as any).toString(),
+        });
+        waitlistForm.classList.add('hidden');
+        waitlistSuccess?.classList.remove('hidden');
+        waitlistSuccess?.classList.add('flex');
+      } catch {
+        waitlistForm.submit();
+      }
     });
   });
 </script>

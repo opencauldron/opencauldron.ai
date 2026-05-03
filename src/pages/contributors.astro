@@ -1,0 +1,208 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Particles from "../components/Particles.astro";
+import Navbar from "../components/Navbar.astro";
+import TechStack from "../components/TechStack.astro";
+import CommunityCTA from "../components/CommunityCTA.astro";
+import Footer from "../components/Footer.astro";
+import ComingSoonModal from "../components/ComingSoonModal.astro";
+
+const contributionAreas = [
+  {
+    title: "Add new providers",
+    desc: "Wire in another model API — image, video, audio. The provider registry makes it a focused, well-scoped PR.",
+    accent: "primary",
+    icon: `<path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>`,
+  },
+  {
+    title: "Improve the UI",
+    desc: "Polish flows, expand the asset library, build dashboards. Next.js + Tailwind v4, no framework guessing required.",
+    accent: "sky",
+    icon: `<rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>`,
+  },
+  {
+    title: "Brand & campaign tools",
+    desc: "Help shape brand kits, prompt templates, and campaign tracking — the workspace primitives creatives actually use.",
+    accent: "fuchsia",
+    icon: `<path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"/><path d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="6.5" cy="9.5" r=".5" fill="currentColor"/>`,
+  },
+  {
+    title: "Self-host hardening",
+    desc: "Docker, Postgres, R2, auth. Make the install path more bulletproof for users who run their own.",
+    accent: "violet",
+    icon: `<path d="M22 12H2"/><path d="M5 5v14"/><path d="M19 5v14"/><path d="M2 7c1 0 1-2 3-2"/><path d="M22 7c-1 0-1-2-3-2"/><path d="M2 17c1 0 1 2 3 2"/><path d="M22 17c-1 0-1 2-3 2"/>`,
+  },
+];
+
+const contributionSteps = [
+  {
+    n: "01",
+    accent: "sky",
+    title: "Star and clone",
+    desc: "Star the repo to follow releases. Clone, run docker compose up, and the studio is running locally in a few minutes.",
+  },
+  {
+    n: "02",
+    accent: "primary",
+    title: "Pick a good first issue",
+    desc: "Filter for the good-first-issue label. Each one is scoped, documented, and reviewed end-to-end.",
+  },
+  {
+    n: "03",
+    accent: "fuchsia",
+    title: "Open a draft PR early",
+    desc: "Push your branch as a draft when you're getting started. Easier to iterate on direction than to redo it at the end.",
+  },
+  {
+    n: "04",
+    accent: "violet",
+    title: "Ship it",
+    desc: "Tests pass, reviewers approve, your name joins the contributors list. Pick the next one.",
+  },
+];
+
+const accentVar: Record<string, string> = {
+  primary: "var(--color-primary)",
+  sky: "var(--color-sky)",
+  fuchsia: "var(--color-fuchsia)",
+  teal: "var(--color-teal)",
+  violet: "var(--color-violet)",
+};
+---
+
+<Layout
+  title="Contribute to OpenCauldron — the open-source AI media studio"
+  description="Build the open AI media studio. Architecture, license, codebase, and how to ship your first PR. Source-available under the Sustainable Use License."
+>
+  <Particles />
+  <Navbar />
+  <ComingSoonModal />
+
+  <!-- Hero -->
+  <section class="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 pt-16 pb-14 sm:pt-32 sm:pb-20">
+    <div class="flex flex-col items-center text-center">
+      <!-- Badge -->
+      <div class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-[var(--color-teal)]/10 px-4 py-1.5 text-xs font-semibold text-[var(--color-teal)] ring-1 ring-[var(--color-teal)]/20 mb-8">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="18" r="3"/>
+          <circle cx="6" cy="6" r="3"/>
+          <path d="M13 6h3a2 2 0 0 1 2 2v7"/>
+          <line x1="6" x2="6" y1="9" y2="21"/>
+        </svg>
+        Built in the open &middot; Source-available
+      </div>
+
+      <!-- Heading -->
+      <h1 class="animate-fade-up delay-100 font-heading text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-7xl max-w-4xl">
+        Build the open
+        <span class="block leading-[1.2] pb-1" style="background: linear-gradient(135deg, oklch(0.70 0.14 195) 0%, oklch(0.65 0.20 280) 45%, oklch(0.65 0.20 310) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          AI media studio
+        </span>
+      </h1>
+
+      <!-- Subheading -->
+      <p class="animate-fade-up delay-200 mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+        OpenCauldron is built in public on a Next.js + Postgres + R2 stack. Add a model, fix a bug, ship a feature — your contribution stays open under the Sustainable Use License.
+      </p>
+
+      <!-- CTAs -->
+      <div class="animate-fade-up delay-300 mt-10 flex flex-col sm:flex-row items-center gap-4">
+        <a href="https://github.com/opencauldron/opencauldron" target="_blank" rel="noopener"
+          class="inline-flex h-12 items-center gap-2.5 rounded-xl px-7 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-[var(--color-primary)]/20 active:translate-y-px animate-shimmer"
+          style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300), oklch(0.68 0.19 280), oklch(0.60 0.22 260));">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+        <a href="https://github.com/opencauldron/opencauldron/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22"
+          target="_blank" rel="noopener"
+          class="inline-flex h-12 items-center gap-2 rounded-xl px-7 text-sm font-medium text-[var(--color-foreground)] ring-1 ring-[var(--color-border)] hover:ring-[var(--color-primary)]/40 hover:bg-[var(--color-card)] transition-all">
+          Browse good first issues
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Where you can help most -->
+  <section class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 py-16 sm:py-24">
+    <div class="text-center mb-16">
+      <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+        Where you can
+        <span style="background: linear-gradient(135deg, oklch(0.72 0.13 195), oklch(0.65 0.20 300)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">help most</span>
+      </h2>
+      <p class="mt-4 text-[var(--color-muted)] max-w-xl mx-auto">
+        Concrete areas where new contributors land impact quickly. Pick one that matches your interest.
+      </p>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2">
+      {contributionAreas.map((area) => (
+        <div class="rounded-2xl bg-[var(--color-card)] p-7 ring-1 ring-[var(--color-border)] transition-all duration-300 hover:ring-[var(--color-primary)]/40">
+          <div
+            class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl"
+            style={`background: linear-gradient(135deg, color-mix(in oklch, ${accentVar[area.accent]} 18%, transparent), color-mix(in oklch, ${accentVar[area.accent]} 6%, transparent));`}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={accentVar[area.accent]} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set:html={area.icon} />
+          </div>
+          <h3 class="font-heading text-lg font-semibold mb-2">{area.title}</h3>
+          <p class="text-sm leading-relaxed text-[var(--color-muted)]">{area.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <TechStack />
+
+  <!-- License -->
+  <section class="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-24">
+    <div class="text-center mb-12">
+      <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+        Source-available, under the
+        <span class="block leading-[1.2] pb-1" style="background: linear-gradient(135deg, oklch(0.76 0.13 280), oklch(0.65 0.20 300)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          Sustainable Use License
+        </span>
+      </h2>
+    </div>
+
+    <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] p-8 sm:p-10 space-y-5 text-sm leading-relaxed text-[var(--color-muted)]">
+      <p>
+        OpenCauldron uses the <a href="https://github.com/opencauldron/opencauldron/blob/main/LICENSE" target="_blank" rel="noopener" class="text-[var(--color-primary)] underline decoration-[var(--color-primary)]/30 underline-offset-2 hover:decoration-[var(--color-primary)] transition-all">Sustainable Use License</a> &mdash; the same license n8n uses. Source is open. Code is auditable. You can fork, modify, redistribute, and self-host freely for any internal business or personal use.
+      </p>
+      <p>
+        The one thing the license prevents is third parties selling OpenCauldron as a commercial service that competes with us. That&rsquo;s what keeps the project sustainable while staying open to almost everyone who wants to use, learn from, or improve it.
+      </p>
+      <p>
+        Your contributions stay under this same license. By submitting a pull request, you agree your work joins the project under the same terms &mdash; same protection, same openness.
+      </p>
+    </div>
+  </section>
+
+  <!-- How to ship your first PR -->
+  <section class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 py-16 sm:py-24">
+    <div class="text-center mb-16">
+      <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+        Ship your
+        <span style="background: linear-gradient(135deg, oklch(0.65 0.20 280), oklch(0.68 0.20 325)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">first PR</span>
+      </h2>
+      <p class="mt-4 text-[var(--color-muted)] max-w-xl mx-auto">
+        Four steps. Each one well-trodden by previous contributors.
+      </p>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2">
+      {contributionSteps.map((step) => (
+        <div class="rounded-2xl bg-[var(--color-card)] p-7 ring-1 ring-[var(--color-border)] transition-all duration-300 hover:ring-[var(--color-primary)]/40">
+          <div
+            class="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-lg font-mono text-sm font-semibold"
+            style={`background: color-mix(in oklch, ${accentVar[step.accent]} 12%, transparent); color: ${accentVar[step.accent]}; box-shadow: inset 0 0 0 1px color-mix(in oklch, ${accentVar[step.accent]} 24%, transparent);`}
+          >
+            {step.n}
+          </div>
+          <h3 class="font-heading text-lg font-semibold mb-2">{step.title}</h3>
+          <p class="text-sm leading-relaxed text-[var(--color-muted)]">{step.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CommunityCTA />
+  <Footer />
+</Layout>
