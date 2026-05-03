@@ -12,6 +12,7 @@ import Gamification from "../components/Gamification.astro";
 import Providers from "../components/Providers.astro";
 import WhoItsFor from "../components/WhoItsFor.astro";
 import TechStack from "../components/TechStack.astro";
+import DataPrivacy from "../components/DataPrivacy.astro";
 import FAQ from "../components/FAQ.astro";
 import CommunityCTA from "../components/CommunityCTA.astro";
 import ComingSoonModal from "../components/ComingSoonModal.astro";
@@ -31,7 +32,10 @@ import Footer from "../components/Footer.astro";
   <Gamification />
   <Providers />
   <WhoItsFor />
-  <TechStack />
+  <DataPrivacy />
+  <div data-mode-section="self-hosted" class="hidden">
+    <TechStack />
+  </div>
   <FAQ />
   <CommunityCTA />
   <Footer />
