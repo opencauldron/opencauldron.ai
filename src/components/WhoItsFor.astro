@@ -10,9 +10,9 @@
     </p>
   </div>
 
-  <div class="grid gap-5 sm:grid-cols-3">
+  <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
     <!-- Individuals -->
-    <div class="group rounded-2xl bg-[var(--color-card)] p-7 ring-1 ring-[var(--color-border)] transition-all duration-300 hover:ring-[var(--color-primary)]/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--color-primary)]/5">
+    <div class="rounded-2xl bg-[var(--color-card)] p-7 ring-1 ring-[var(--color-border)] transition-colors duration-300 hover:ring-[var(--color-primary)]/30">
       <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[oklch(0.72_0.14_240)]/15 to-[oklch(0.72_0.14_240)]/5">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.72 0.14 240)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       </div>
@@ -37,7 +37,7 @@
     </div>
 
     <!-- Brands -->
-    <div class="group rounded-2xl bg-[var(--color-card)] p-7 ring-1 ring-[var(--color-border)] transition-all duration-300 hover:ring-[var(--color-primary)]/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--color-primary)]/5">
+    <div class="rounded-2xl bg-[var(--color-card)] p-7 ring-1 ring-[var(--color-border)] transition-colors duration-300 hover:ring-[var(--color-primary)]/30">
       <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--color-primary)]/15 to-[var(--color-primary)]/5">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"/><path d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="6.5" cy="9.5" r=".5" fill="var(--color-primary)"/></svg>
       </div>
@@ -62,7 +62,7 @@
     </div>
 
     <!-- Agencies -->
-    <div class="group rounded-2xl bg-[var(--color-card)] p-7 ring-1 ring-[var(--color-border)] transition-all duration-300 hover:ring-[var(--color-primary)]/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--color-primary)]/5">
+    <div class="rounded-2xl bg-[var(--color-card)] p-7 ring-1 ring-[var(--color-border)] transition-colors duration-300 hover:ring-[var(--color-primary)]/30">
       <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--color-fuchsia)]/15 to-[var(--color-fuchsia)]/5">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-fuchsia)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
       </div>
@@ -85,5 +85,35 @@
         </li>
       </ul>
     </div>
+
+    <!-- Contributors -->
+    <a href="/contributors" class="group block rounded-2xl bg-[var(--color-card)] p-7 ring-1 ring-[var(--color-border)] transition-all duration-300 hover:ring-[var(--color-teal)]/40 hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--color-teal)]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-teal)]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-background)]">
+      <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--color-teal)]/15 to-[var(--color-teal)]/5">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="18" r="3"/>
+          <circle cx="6" cy="6" r="3"/>
+          <path d="M13 6h3a2 2 0 0 1 2 2v7"/>
+          <line x1="6" x2="6" y1="9" y2="21"/>
+        </svg>
+      </div>
+      <h3 class="font-heading text-lg font-semibold mb-2">Contributors</h3>
+      <p class="text-sm leading-relaxed text-[var(--color-muted)]">
+        Help shape the open studio. Browse the codebase, fix bugs, add models, ship features.
+      </p>
+      <ul class="mt-4 space-y-2">
+        <li class="flex items-center gap-2 text-xs text-[var(--color-muted)]">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          Source-available license
+        </li>
+        <li class="flex items-center gap-2 text-xs text-[var(--color-muted)]">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          Good first issues to tackle
+        </li>
+        <li class="flex items-center gap-2 text-xs text-[var(--color-muted)]">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          Active Discord community
+        </li>
+      </ul>
+    </a>
   </div>
 </section>

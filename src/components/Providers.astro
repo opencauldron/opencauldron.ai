@@ -1,4 +1,6 @@
 ---
+import { GITHUB_NEW_PROVIDER_ISSUE } from "../config";
+
 const imageProviders = [
   { name: "Gemini", logo: "/logos/gemini.png", models: ["Imagen 4", "Flash", "Lite", "Ultra", "Fast"] },
   { name: "Flux", logo: "/logos/bfl.png", models: ["Pro"] },
@@ -87,7 +89,7 @@ const videoProviders = [
   <!-- Request a provider CTA -->
   <div class="mt-8 text-center">
     <a
-      href="https://github.com/opencauldron/opencauldron/issues/new?title=Provider+Request:+&labels=provider-request&body=**Provider+/+Model+name:**%0A%0A**Website+URL:**%0A%0A**Why+you'd+like+it+added:**%0A"
+      href={GITHUB_NEW_PROVIDER_ISSUE}
       target="_blank"
       rel="noopener"
       class="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-primary)] hover:text-[var(--color-foreground)] transition-colors"

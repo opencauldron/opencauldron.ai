@@ -1,12 +1,13 @@
 ---
 import "../styles/global.css";
+import { SITE_URL } from "../config";
 
 interface Props {
   title?: string;
   description?: string;
 }
 
-const siteUrl = "https://opencauldron.ai";
+const siteUrl = SITE_URL;
 
 const {
   title = "OpenCauldron — The Open Source AI Media Generation Studio",
