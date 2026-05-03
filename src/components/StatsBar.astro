@@ -2,19 +2,24 @@
 <section class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 pb-16 sm:pb-20">
   <div class="animate-fade-up delay-500 grid grid-cols-2 sm:grid-cols-4 gap-4">
     <div class="text-center p-5 rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)]">
-      <p class="font-heading text-2xl font-bold text-[var(--color-foreground)]">10+</p>
+      <p class="font-heading text-2xl font-bold" style="color: var(--color-sky);">10+</p>
       <p class="text-xs text-[var(--color-muted)] mt-1">AI Models</p>
     </div>
     <div class="text-center p-5 rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)]">
-      <p class="font-heading text-2xl font-bold text-[var(--color-foreground)]">100%</p>
+      <p class="font-heading text-2xl font-bold" style="color: var(--color-primary);">100%</p>
       <p class="text-xs text-[var(--color-muted)] mt-1">Open Source</p>
     </div>
     <div class="text-center p-5 rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)]">
-      <p class="font-heading text-2xl font-bold text-[var(--color-foreground)]">BYO</p>
+      <p class="font-heading text-2xl font-bold" style="color: var(--color-fuchsia);">BYO</p>
       <p class="text-xs text-[var(--color-muted)] mt-1">API Keys</p>
     </div>
-    <div class="text-center p-5 rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)]">
-      <p class="font-heading text-2xl font-bold text-[var(--color-foreground)]">0</p>
+    <!-- Mode-aware fourth stat -->
+    <div data-mode-stat="hosted" class="text-center p-5 rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)]">
+      <p class="font-heading text-2xl font-bold" style="color: var(--color-violet);">Free</p>
+      <p class="text-xs text-[var(--color-muted)] mt-1">During Beta</p>
+    </div>
+    <div data-mode-stat="self-hosted" class="hidden text-center p-5 rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)]">
+      <p class="font-heading text-2xl font-bold" style="color: var(--color-violet);">0</p>
       <p class="text-xs text-[var(--color-muted)] mt-1">Data Collected</p>
     </div>
   </div>

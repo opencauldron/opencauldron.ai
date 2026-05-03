@@ -1,5 +1,5 @@
 ---
-import { DOCS_INTRO, DISCORD_INVITE, GITHUB_REPO } from "../config";
+import { DOCS_GUIDES, DOCS_INSTALLATION, DOCS_CONTRIBUTING, DISCORD_INVITE, GITHUB_REPO } from "../config";
 ---
 
 <!-- Nav -->
@@ -16,11 +16,11 @@ import { DOCS_INTRO, DISCORD_INVITE, GITHUB_REPO } from "../config";
       <span class="hidden sm:inline rounded-full bg-[var(--color-primary)]/10 px-2 py-0.5 text-[10px] font-semibold text-[var(--color-primary)] ring-1 ring-[var(--color-primary)]/20">v0.1.0</span>
     </a>
     <div class="flex items-center gap-5">
-      <a href="#app-showcase" class="hidden md:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Preview</a>
-      <a href="#features" class="hidden md:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Features</a>
-      <a href="#providers" class="hidden md:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Models</a>
-      <a href="#stack" class="hidden md:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Stack</a>
-      <a href={DOCS_INTRO} class="hidden md:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Docs</a>
+      <a href="#features" class="hidden lg:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Features</a>
+      <a href="#providers" class="hidden lg:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Models</a>
+      <a href={DOCS_GUIDES} class="hidden md:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Guides</a>
+      <a href={DOCS_INSTALLATION} class="hidden md:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Self-host</a>
+      <a href={DOCS_CONTRIBUTING} class="hidden md:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Contribute</a>
       <a href={DISCORD_INVITE} target="_blank" rel="noopener" class="hidden md:block text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] transition-colors">Discord</a>
       <!-- GitHub icon-only on mobile -->
       <a href={GITHUB_REPO} target="_blank" rel="noopener" class="inline-flex h-9 items-center gap-2 rounded-lg bg-[var(--color-card)] px-3 sm:px-4 text-sm font-medium text-[var(--color-foreground)] ring-1 ring-[var(--color-border)] hover:ring-[var(--color-primary)]/40 transition-all">
@@ -37,11 +37,21 @@ import { DOCS_INTRO, DISCORD_INVITE, GITHUB_REPO } from "../config";
   <!-- Mobile menu dropdown -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-background)]/95 backdrop-blur-xl">
     <div class="flex flex-col px-4 py-3 gap-1">
-      <a href="#app-showcase" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-card)] transition-colors">Preview</a>
+      <a href="#cloud-waitlist-form" class="mobile-nav-link group relative inline-flex h-11 items-center justify-center gap-2 rounded-xl px-4 text-sm font-semibold text-white shadow-lg shadow-[var(--color-primary)]/25 mb-1 animate-shimmer overflow-hidden" style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300), oklch(0.68 0.19 280), oklch(0.60 0.22 260)); background-size: 200% 200%;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/>
+          <path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/>
+        </svg>
+        Join the beta
+      </a>
+      <p class="px-3 pt-2 pb-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--color-muted)]/70">On this page</p>
       <a href="#features" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-card)] transition-colors">Features</a>
       <a href="#providers" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-card)] transition-colors">Models</a>
-      <a href="#stack" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-card)] transition-colors">Stack</a>
-      <a href={DOCS_INTRO} class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-card)] transition-colors">Docs</a>
+      <p class="px-3 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--color-muted)]/70">Docs</p>
+      <a href={DOCS_GUIDES} class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-card)] transition-colors">Guides</a>
+      <a href={DOCS_INSTALLATION} class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-card)] transition-colors">Self-host</a>
+      <a href={DOCS_CONTRIBUTING} class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-card)] transition-colors">Contribute</a>
+      <p class="px-3 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--color-muted)]/70">Community</p>
       <a href={DISCORD_INVITE} target="_blank" rel="noopener" class="mobile-nav-link rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-foreground)] hover:bg-[var(--color-card)] transition-colors">Discord</a>
     </div>
   </div>

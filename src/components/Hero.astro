@@ -93,7 +93,7 @@ const hostedBullets = [
       </h1>
 
       <!-- Subheading -->
-      <p class="animate-fade-up delay-200 mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+      <p class="animate-fade-up delay-200 mt-6 max-w-2xl text-lg leading-relaxed text-balance text-[var(--color-muted)]">
         Run it on your own infra in minutes. Your keys, your database, your data — source-available under the Sustainable Use License, free to fork and self-host.
       </p>
 
@@ -188,7 +188,7 @@ const hostedBullets = [
       </h1>
 
       <!-- Subheading -->
-      <p class="animate-fade-up delay-200 mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-muted)]">
+      <p class="animate-fade-up delay-200 mt-6 max-w-2xl text-lg leading-relaxed text-balance text-[var(--color-muted)]">
         Generate images, video, and audio across Flux, Imagen, Ideogram, Recraft, and every major provider &mdash; with prompts, assets, brands, and team workflows in one workspace.
       </p>
 
@@ -204,32 +204,32 @@ const hostedBullets = [
               action="/?waitlist=ok"
               data-netlify="true"
               netlify-honeypot="bot-field"
-              class="flex flex-col sm:flex-row gap-3 text-left"
+              class="text-left"
             >
               <input type="hidden" name="form-name" value="cloud-waitlist" />
               <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
-              <div class="flex-1">
-                <label for="cloud-waitlist-email" class="block text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider mb-2">
-                  Get an invite
-                </label>
+              <label for="cloud-waitlist-email" class="block text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider mb-2">
+                Get an invite
+              </label>
+              <div class="flex flex-col sm:flex-row gap-3">
                 <input
                   id="cloud-waitlist-email"
                   type="email"
                   name="email"
                   required
                   placeholder="you@somewhere.cool"
-                  class="w-full rounded-lg bg-[var(--color-background)] px-4 py-3 text-sm text-[var(--color-foreground)] ring-1 ring-[var(--color-border)] focus:ring-[var(--color-primary)] focus:outline-none transition-all placeholder:text-[var(--color-muted)]/50"
+                  class="flex-1 min-w-0 h-12 rounded-lg bg-[var(--color-background)] px-4 text-sm text-[var(--color-foreground)] ring-1 ring-[var(--color-border)] focus:ring-[var(--color-primary)] focus:outline-none transition-all placeholder:text-[var(--color-muted)]/50"
                 />
-                <p class="mt-2 text-xs text-[var(--color-muted)]">We'll only email you when your beta invite is ready. No spam, ever.</p>
+                <button
+                  type="submit"
+                  class="shrink-0 inline-flex h-12 items-center justify-center gap-2 rounded-lg px-6 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-[var(--color-primary)]/20 active:translate-y-px animate-shimmer"
+                  style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300), oklch(0.68 0.19 280), oklch(0.60 0.22 260));"
+                >
+                  Join the beta
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
               </div>
-              <button
-                type="submit"
-                class="shrink-0 inline-flex h-12 items-center justify-center gap-2 rounded-lg px-6 text-sm font-semibold text-white transition-all hover:shadow-xl hover:shadow-[var(--color-primary)]/20 active:translate-y-px animate-shimmer mt-2 sm:mt-7"
-                style="background: linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300), oklch(0.68 0.19 280), oklch(0.60 0.22 260));"
-              >
-                Join the beta
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </button>
+              <p class="mt-2 text-xs text-[var(--color-muted)]">We'll only email you when your beta invite is ready. No spam, ever.</p>
             </form>
             <div id="cloud-waitlist-success" class="hidden flex items-center gap-3 text-left">
               <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-teal)]/10">
@@ -302,6 +302,7 @@ const hostedBullets = [
     const modeBtns = document.querySelectorAll<HTMLButtonElement>('.mode-btn');
     const modePanels = document.querySelectorAll<HTMLElement>('[data-mode-panel]');
     const modeStats = document.querySelectorAll<HTMLElement>('[data-mode-stat]');
+    const modeSections = document.querySelectorAll<HTMLElement>('[data-mode-section]');
     const activeGradient = 'linear-gradient(135deg, oklch(0.58 0.22 280), oklch(0.65 0.20 300))';
 
     function setMode(mode: string) {
@@ -325,6 +326,10 @@ const hostedBullets = [
       });
       modeStats.forEach(s => {
         const match = s.getAttribute('data-mode-stat') === mode;
+        s.classList.toggle('hidden', !match);
+      });
+      modeSections.forEach(s => {
+        const match = s.getAttribute('data-mode-section') === mode;
         s.classList.toggle('hidden', !match);
       });
     }
