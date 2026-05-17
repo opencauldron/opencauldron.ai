@@ -1,0 +1,80 @@
+---
+import { GITHUB_REPO, GITHUB_LICENSE, DOCS_INSTALLATION } from "../config";
+---
+
+<!-- Open core: source-available, self-hostable. Compact, intentionally
+     positioned lower than the collaboration story but still credible. -->
+<section id="open-core" class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
+  <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] p-8 sm:p-12">
+    <div class="flex flex-col lg:flex-row lg:items-center gap-10">
+      <!-- Copy -->
+      <div class="flex-1">
+        <div class="inline-flex items-center gap-2 rounded-full bg-[var(--color-teal)]/10 px-3 py-1 text-xs font-semibold text-[var(--color-teal)] ring-1 ring-[var(--color-teal)]/20 mb-4">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          Open core
+        </div>
+        <h2 class="font-heading text-2xl font-bold tracking-tight sm:text-3xl">
+          Built in the open.
+          <span style="background: linear-gradient(135deg, oklch(0.70 0.12 195), oklch(0.65 0.20 300)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Run it yourself if you want.
+          </span>
+        </h2>
+        <p class="mt-4 text-[var(--color-muted)] leading-relaxed max-w-2xl">
+          The studio code is source-available under the
+          <a href={GITHUB_LICENSE} target="_blank" rel="noopener" class="text-[var(--color-primary)] hover:underline">Sustainable Use License</a>
+          &mdash; free to fork and self-host on your own infra in minutes. Cloud is just the
+          same studio we run, hosted for you. No lock-in, no telemetry, no upsell to a
+          different product.
+        </p>
+        <div class="mt-7 flex flex-col sm:flex-row gap-3">
+          <a
+            href={GITHUB_REPO}
+            target="_blank"
+            rel="noopener"
+            class="btn-primary h-11 px-5 text-sm font-semibold rounded-xl"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+          <a
+            href={DOCS_INSTALLATION}
+            class="inline-flex h-11 items-center justify-center gap-2 rounded-xl px-5 text-sm font-medium text-[var(--color-foreground)] ring-1 ring-[var(--color-border)] hover:ring-[var(--color-primary)]/40 hover:bg-[var(--color-background)] transition-all"
+          >
+            Installation guide
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Install snippet -->
+      <div class="w-full lg:w-[22rem] shrink-0">
+        <div class="rounded-xl ring-1 ring-[var(--color-border)] bg-[var(--color-background)] overflow-hidden">
+          <div class="flex items-center gap-2 px-4 py-2.5 border-b border-[var(--color-border)] text-xs text-[var(--color-muted)]">
+            <div class="flex gap-1.5">
+              <div class="h-2.5 w-2.5 rounded-full bg-[oklch(0.65_0.15_25)]/60"></div>
+              <div class="h-2.5 w-2.5 rounded-full bg-[oklch(0.75_0.15_85)]/60"></div>
+              <div class="h-2.5 w-2.5 rounded-full bg-[oklch(0.65_0.15_145)]/60"></div>
+            </div>
+            <span class="font-mono">~/opencauldron</span>
+          </div>
+          <div class="p-4 font-mono text-xs leading-relaxed text-left whitespace-pre overflow-x-auto">
+            <p>
+              <span class="text-[var(--color-muted)]">$</span>
+              <span style="color: var(--color-sky);">curl -O .../docker-compose.yml</span>
+            </p>
+            <p class="mt-1">
+              <span class="text-[var(--color-muted)]">$</span>
+              <span style="color: var(--color-primary);">curl -o .env .../.env.example</span>
+            </p>
+            <p class="mt-1 text-[var(--color-muted)]/70"># edit .env</p>
+            <p class="mt-1">
+              <span class="text-[var(--color-muted)]">$</span>
+              <span style="color: var(--color-fuchsia);">docker compose up -d</span>
+            </p>
+          </div>
+        </div>
+        <p class="mt-3 text-[11px] text-[var(--color-muted)]/80 text-center">Self-host in ~3 minutes &mdash; Docker is the recommended path.</p>
+      </div>
+    </div>
+  </div>
+</section>

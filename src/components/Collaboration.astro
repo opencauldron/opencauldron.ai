@@ -1,0 +1,177 @@
+<!-- Collaboration -->
+<section class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-24">
+  <div class="grid gap-10 lg:grid-cols-2 items-center">
+    <!-- Copy (first on mobile, second on desktop — mirrors AssetManagement) -->
+    <div class="order-1 lg:order-2">
+      <div class="inline-flex items-center gap-2 rounded-full bg-[var(--color-violet)]/10 px-4 py-1.5 text-xs font-semibold text-[var(--color-violet)] ring-1 ring-[var(--color-violet)]/20 mb-6">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        From prompt to approved
+      </div>
+      <h2 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">
+        Collaborate on
+        <span style="background: linear-gradient(135deg, oklch(0.65 0.20 300), oklch(0.68 0.20 325)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">every asset</span>
+      </h2>
+      <p class="mt-4 text-[var(--color-muted)] leading-relaxed text-balance">
+        Generation is just step one. OpenCauldron builds the rest of the workflow in &mdash; threaded conversation on every asset, a keyboard-driven review queue, and shareable campaign galleries for clients and stakeholders.
+      </p>
+      <div class="mt-8 space-y-4">
+        <div class="flex items-start gap-3">
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-violet)]/10 mt-0.5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-violet)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              <path d="M9 10h.01"/><path d="M13 10h.01"/><path d="M17 10h.01"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold">Asset threads with @mentions</p>
+            <p class="text-xs text-[var(--color-muted)] mt-0.5">Every asset has its own conversation. Drop a note, tag a teammate, attach a reference &mdash; right next to the image.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)]/10 mt-0.5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11.5 11 13.5 15 9.5"/><path d="M20 6 9 17l-5-5"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold">Filmstrip review &amp; approval</p>
+            <p class="text-xs text-[var(--color-muted)] mt-0.5">Burn through review queues with <kbd class="rounded bg-[var(--color-background)] px-1 ring-1 ring-[var(--color-border)]/60 text-[10px] font-mono">J</kbd> / <kbd class="rounded bg-[var(--color-background)] px-1 ring-1 ring-[var(--color-border)]/60 text-[10px] font-mono">K</kbd> keys. Approve, reject, or request changes &mdash; decisions are tracked.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-fuchsia)]/10 mt-0.5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-fuchsia)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold">Public campaign galleries</p>
+            <p class="text-xs text-[var(--color-muted)] mt-0.5">Bundle approved work into a campaign and share it via link &mdash; no login required for clients to review the deliverables.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mockup (second on mobile, first on desktop) -->
+    <div class="space-y-4 order-2 lg:order-1">
+      <!-- Card 1: Asset thread -->
+      <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] p-5">
+        <div class="flex items-center justify-between mb-4">
+          <p class="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">Asset thread</p>
+          <span class="rounded-full bg-[var(--color-violet)]/10 px-2 py-0.5 text-[10px] font-semibold text-[var(--color-violet)] ring-1 ring-[var(--color-violet)]/20">3 replies</span>
+        </div>
+        <div class="flex gap-3">
+          <!-- Asset thumb -->
+          <div class="h-20 w-20 rounded-lg overflow-hidden shrink-0 relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.35_0.12_280)] to-[oklch(0.22_0.08_310)]"></div>
+            <div class="absolute bottom-1 left-1 rounded bg-[var(--color-primary)]/30 px-1 py-0.5 text-[7px] font-medium text-[var(--color-primary)]">Flux Pro</div>
+          </div>
+          <div class="flex-1 min-w-0 space-y-2.5">
+            <!-- Message 1 -->
+            <div class="flex items-start gap-2">
+              <div class="h-5 w-5 shrink-0 rounded-full bg-gradient-to-br from-[var(--color-teal)] to-[var(--color-sky)]"></div>
+              <div class="flex-1 min-w-0">
+                <p class="text-[11px] leading-relaxed">
+                  <span class="font-semibold text-[var(--color-foreground)]">Maya</span>
+                  <span class="text-[var(--color-muted)] ml-1">&middot; 2m</span>
+                </p>
+                <p class="text-[11px] leading-snug text-[var(--color-foreground)]/85 mt-0.5">Love the lighting! Can we try a 16:9 crop?</p>
+              </div>
+            </div>
+            <!-- Message 2 -->
+            <div class="flex items-start gap-2">
+              <div class="h-5 w-5 shrink-0 rounded-full bg-gradient-to-br from-[var(--color-fuchsia)] to-[var(--color-violet)]"></div>
+              <div class="flex-1 min-w-0">
+                <p class="text-[11px] leading-relaxed">
+                  <span class="font-semibold text-[var(--color-foreground)]">Adam</span>
+                  <span class="text-[var(--color-muted)] ml-1">&middot; 1m</span>
+                </p>
+                <p class="text-[11px] leading-snug text-[var(--color-foreground)]/85 mt-0.5">
+                  <span class="text-[var(--color-primary)] font-medium">@maya</span> on it &mdash; re-running with Acme brand preset.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Review filmstrip -->
+      <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] p-5">
+        <div class="flex items-center justify-between mb-4">
+          <p class="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">Review queue</p>
+          <div class="flex items-center gap-1.5 text-[10px] text-[var(--color-muted)]">
+            <kbd class="rounded bg-[var(--color-background)] px-1.5 py-0.5 ring-1 ring-[var(--color-border)]/60 font-mono text-[var(--color-foreground)]">J</kbd>
+            <span>/</span>
+            <kbd class="rounded bg-[var(--color-background)] px-1.5 py-0.5 ring-1 ring-[var(--color-border)]/60 font-mono text-[var(--color-foreground)]">K</kbd>
+            <span>to navigate</span>
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <!-- Approved -->
+          <div class="flex-1 aspect-square rounded-lg overflow-hidden relative ring-2 ring-[var(--color-teal)]">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.30_0.10_195)] to-[oklch(0.20_0.06_220)]"></div>
+            <div class="absolute top-1.5 right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-teal)]">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+          </div>
+          <!-- Approved -->
+          <div class="flex-1 aspect-square rounded-lg overflow-hidden relative ring-2 ring-[var(--color-teal)]">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.32_0.08_55)] to-[oklch(0.20_0.04_30)]"></div>
+            <div class="absolute top-1.5 right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-teal)]">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+          </div>
+          <!-- Current (highlighted) -->
+          <div class="flex-1 aspect-square rounded-lg overflow-hidden relative ring-2 ring-[var(--color-primary)] shadow-lg shadow-[var(--color-primary)]/30">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.35_0.14_325)] to-[oklch(0.22_0.10_340)]"></div>
+            <div class="absolute inset-x-0 bottom-0 px-1.5 py-1 bg-gradient-to-t from-black/80 to-transparent text-[8px] font-semibold text-white text-center">Reviewing</div>
+          </div>
+          <!-- Rejected -->
+          <div class="flex-1 aspect-square rounded-lg overflow-hidden relative ring-2 ring-[oklch(0.65_0.20_25)]/70 opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.30_0.12_240)] to-[oklch(0.20_0.08_260)]"></div>
+            <div class="absolute top-1.5 right-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-[oklch(0.65_0.20_25)]">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </div>
+          </div>
+          <!-- Pending -->
+          <div class="flex-1 aspect-square rounded-lg overflow-hidden relative ring-1 ring-[var(--color-border)]/60">
+            <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.28_0.10_145)] to-[oklch(0.18_0.06_160)]"></div>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-[10px]">
+          <span class="text-[var(--color-muted)]">3 of 12 reviewed</span>
+          <div class="flex items-center gap-1.5">
+            <div class="h-1 w-20 rounded-full bg-[var(--color-border)]/50 overflow-hidden">
+              <div class="h-full rounded-full bg-[var(--color-primary)]" style="width: 25%"></div>
+            </div>
+            <span class="text-[var(--color-muted)] tabular-nums">25%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Public campaign share -->
+      <div class="rounded-2xl ring-1 ring-[var(--color-border)] bg-[var(--color-card)] p-5">
+        <div class="flex items-center justify-between mb-4">
+          <p class="text-xs font-semibold text-[var(--color-muted)] uppercase tracking-wider">Campaign &middot; Public</p>
+          <span class="inline-flex items-center gap-1 rounded-full bg-[var(--color-fuchsia)]/10 px-2 py-0.5 text-[10px] font-semibold text-[var(--color-fuchsia)] ring-1 ring-[var(--color-fuchsia)]/20">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Live
+          </span>
+        </div>
+        <p class="text-sm font-semibold text-[var(--color-foreground)]">Acme Co &middot; Spring '26 launch</p>
+        <div class="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-[var(--color-background)] px-3 py-1.5 ring-1 ring-[var(--color-border)]/60 font-mono text-[10px] text-[var(--color-muted)]">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          studio.opencauldron.ai/c/acme-spring-26
+        </div>
+        <div class="mt-3 flex items-center gap-2 text-[10px] text-[var(--color-muted)]">
+          <span class="inline-flex items-center gap-1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>12 approved assets</span>
+          <span class="text-[var(--color-border)]">&middot;</span>
+          <span>Client view &mdash; no login required</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

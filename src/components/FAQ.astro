@@ -18,7 +18,7 @@ const faqs: {
     scope: "both",
     accent: "sky",
     icon: `<circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/>`,
-    a: `Depends on how you run it. <strong>Self-host</strong> is free and source-available under the Sustainable Use License — you only pay providers like Google or Replicate directly for AI model API usage with your own keys. <strong>Cloud</strong> is free during invite-only beta; paid tiers will come later, and you can always bring your own provider keys to keep costs predictable.`,
+    a: `Yes &mdash; in different ways. <strong>Cloud</strong> is free during invite-only beta; paid tiers will come later, and you can always bring your own provider keys to keep costs predictable. <strong>Self-host</strong> is source-available under the Sustainable Use License &mdash; you only pay providers like Google or Replicate directly for AI model API usage with your own keys.`,
   },
   {
     q: "What API keys do I need?",
@@ -42,7 +42,7 @@ const faqs: {
     scope: "both",
     accent: "violet",
     icon: `<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/>`,
-    a: `On <strong>self-host</strong>, OpenCauldron doesn't handle billing — your API keys are charged directly by each provider at their standard rates. On <strong>Cloud</strong>, you'll see provider costs the same way plus a monthly subscription for the hosted convenience (free during beta). Either way, the built-in usage dashboard breaks down every generation's cost by user, model, and brand.`,
+    a: `On <strong>Cloud</strong>, generation costs and a monthly subscription for the hosted convenience are charged together (free during beta). On <strong>self-host</strong>, OpenCauldron doesn't handle billing &mdash; your API keys are charged directly by each provider at their standard rates. Either way, the built-in usage dashboard breaks down every generation's cost by user, model, and brand.`,
   },
   {
     q: "Where is my data stored?",
@@ -50,7 +50,7 @@ const faqs: {
     scope: "both",
     accent: "teal",
     icon: `<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>`,
-    a: `On <strong>self-host</strong>, everything stays on your infrastructure — prompts and metadata in your PostgreSQL database, generated assets in your Cloudflare R2 bucket (or any S3-compatible storage). The self-hosted build never phones home or collects telemetry. On <strong>Cloud</strong>, your data lives in our managed PostgreSQL and R2 with per-workspace isolation — same code as self-host, just running for you.`,
+    a: `On <strong>Cloud</strong>, your data lives in our managed PostgreSQL and R2 storage with per-workspace isolation. Prompts, generations, and brand assets are scoped to your workspace and never shared across customers. On <strong>self-host</strong>, everything stays on your infrastructure &mdash; prompts and metadata in your PostgreSQL database, generated assets in your Cloudflare R2 bucket (or any S3-compatible storage). The self-hosted build doesn't collect telemetry.`,
   },
   {
     q: "Can I use it without self-hosting?",
@@ -58,7 +58,7 @@ const faqs: {
     scope: "cloud",
     accent: "sky",
     icon: `<path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>`,
-    a: `Yes — <strong>OpenCauldron Cloud</strong> is the hosted version of the studio. Sign in with Google, get a workspace, start generating — no Docker, no setup. It's in invite-only beta right now; request a spot from the Cloud toggle at the top of the page. Prefer to run your own? Docker takes a few minutes — see the installation docs.`,
+    a: `Yes &mdash; <strong>OpenCauldron Cloud</strong> is the hosted version of the studio. Sign in with Google, get a workspace, start generating &mdash; no Docker, no setup. It's in invite-only beta right now; request a spot from the beta form at the top of the page. Prefer to run your own? Docker takes a few minutes &mdash; see the installation docs.`,
   },
   {
     q: "What license is OpenCauldron under?",
